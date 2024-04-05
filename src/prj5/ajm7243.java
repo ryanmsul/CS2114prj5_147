@@ -1,10 +1,13 @@
-package src.prj5;
+package prj5;
+/**
+ * 
+ */
 public class ajm7243
 {
-    //~ Fields ................................................................
+    public static void main(String[] args) 
+    {
 
-    //~ Constructors ..........................................................
+        System.out.println("Glad to be on your team");
 
-    //~Public  Methods ........................................................
-
+    }
 }

@@ -6,4 +6,10 @@ public class ryanmsul12
     {
         System.out.println("Hello, hi.");
     }
+    public static void main2(String[] args) 
+    {
+
+        System.out.println("Glad to be on your team, from Colby Ryan");
+
+    }
 }

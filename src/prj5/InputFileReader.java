@@ -1,6 +1,5 @@
 package prj5;
 
-import dailymixes.DailyMixDataException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
@@ -28,6 +27,8 @@ public class InputFileReader
      *          if an error has been reached while parsing the input file.
      * @throws FileNotFoundException 
      *          if the input file is inaccessible or does not exist.
+     * @throws MonthException 
+     *          if the month is not a valid month of the year 
      */
     public InputFileReader(String fileName) throws ParseException,
     FileNotFoundException, MonthException 
@@ -73,7 +74,7 @@ public class InputFileReader
             Influencer newInfluencer = new Influencer(username, channel, 
                 mainTopic);
             
-            newInfluencer.add(readSinglePost(month, likes, posts, followers, 
+            newInfluencer.add(readSinglePosts(month, likes, posts, followers, 
                 comments, views));
             
             parsedList.add(newInfluencer);

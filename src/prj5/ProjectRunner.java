@@ -1,4 +1,5 @@
 package prj5;
+
 // -------------------------------------------------------------------------
 /**
  *  Write a one-sentence summary of your class here.
@@ -16,4 +17,32 @@ public class ProjectRunner
 
     //~Public  Methods ........................................................
 
+    
+    public static void main(String[] args) throws IOException{
+
+        // Changes input file based on passed arguments
+        InputFileReader filer;
+
+        if (args.length > 0) {
+        filer = new InputFileReader(args[0]); 
+        }
+        else {
+        filer = new InputFileReader("SampleInput1_2023.csv");
+        }
+
+        boolean showConsole;
+        boolean showGUI;
+        
+        if (showConsole) {
+            /*
+            * TODO: For intermediate Submission - Should print the data on the console
+            */
+            }
+            if (showGUI) {
+            /*
+            * TODO: For final Submission - Should have the GUI display for the input data
+            */
+        
+        
+    }
 }

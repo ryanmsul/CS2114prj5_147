@@ -58,12 +58,13 @@ public class InputFileReader
             String month = tokens[0];
             String username = tokens[1];
             String channel = tokens[2];
-            String mainTopic = tokens[3];
-            int likes = Integer.valueOf(tokens[4]);
-            int posts = Integer.valueOf(tokens[5]);
-            int followers = Integer.valueOf(tokens[6]);
-            int comments = Integer.valueOf(tokens[7]);
-            int views = Integer.valueOf(tokens[8]);
+            String countryName = tokens[3];
+            String pageTopic = tokens[4];
+            int likes = Integer.valueOf(tokens[5]);
+            int posts = Integer.valueOf(tokens[6]);
+            int followers = Integer.valueOf(tokens[7]);
+            int comments = Integer.valueOf(tokens[8]);
+            int views = Integer.valueOf(tokens[9]);
             
             if (!isAValidMonth(month)) 
             {
@@ -72,7 +73,7 @@ public class InputFileReader
             }
             
             Influencer newInfluencer = new Influencer(username, channel, 
-                mainTopic);
+                countryName, pageTopic);
             
             newInfluencer.add(readSinglePosts(month, likes, posts, followers, 
                 comments, views));
@@ -106,12 +107,12 @@ public class InputFileReader
     private boolean isAValidMonth(String month) 
     {
         month.toUpperCase();
-        if (month.equals(MONTH[0]) || month.equals(MONTH[1]) || 
-            month.equals(MONTH[2]) || month.equals(MONTH[3]) || 
-            month.equals(MONTH[4]) || month.equals(MONTH[5]) || 
-            month.equals(MONTH[6]) || month.equals(MONTH[7]) || 
-            month.equals(MONTH[8]) || month.equals(MONTH[9]) || 
-            month.equals(MONTH[10]) || month.equals(MONTH[11])) 
+        if (month.equals(Month.MONTH[0]) || month.equals(Month.MONTH[1]) || 
+            month.equals(Month.MONTH[2]) || month.equals(Month.MONTH[3]) || 
+            month.equals(Month.MONTH[4]) || month.equals(Month.MONTH[5]) || 
+            month.equals(Month.MONTH[6]) || month.equals(Month.MONTH[7]) || 
+            month.equals(Month.MONTH[8]) || month.equals(Month.MONTH[9]) || 
+            month.equals(Month.MONTH[10]) || month.equals(Month.MONTH[11])) 
         {
             return true;
         }

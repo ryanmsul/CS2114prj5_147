@@ -1,4 +1,5 @@
 package prj5;
+
 // -------------------------------------------------------------------------
 /**
  *  Write a one-sentence summary of your class here.
@@ -14,9 +15,7 @@ public class Month
     /**
      * A string array of all valid months.
      */
-    public static final String[] MONTH = {"January", "February", "March", 
-        "April", "May", "June", "July", "August", "September", "October", 
-        "November", "December"};
+    private String month;
     private int likes;
     private int posts;
     private int followers;
@@ -29,15 +28,17 @@ public class Month
     /**
      * Create a new Month object.
      * 
+     * @param month input month of the year.
      * @param likes the amount of likes recieved in that month.
      * @param posts the number of posts made for that month.
      * @param followers the amount of followers gained during a month.
      * @param comments the number of comment received in a month.
      * @param views the number of views for a month.
      */
-    public Month (int likes, int posts, int followers, 
+    public Month (String month, int likes, int posts, int followers, 
         int comments, int views)
     {
+        this.month = month;
         this.likes = likes;
         this.posts = posts;
         this.followers = followers;
@@ -46,6 +47,17 @@ public class Month
     }
     
     //~Public  Methods ........................................................
+    /**
+     * Returns the name of the month.
+     * 
+     * @return String returns a string representing the month
+     * name.
+     */
+    public String getMonth()
+    {
+        return month;
+    }
+    
     /**
      * Returns the number of likes an influncer got during
      * a given month.
@@ -114,7 +126,11 @@ public class Month
      */
     public boolean equals()
     {
-       return false; 
+        if ()
+        {
+            
+        }
+        return false; 
     }
     
     /**

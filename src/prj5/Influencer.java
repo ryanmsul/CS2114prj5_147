@@ -11,7 +11,7 @@ package prj5;
 public class Influencer
 {
     // TODO: implement Month class before deciding what to do with this?
-    // private SinglyLinkedList<Month> month;
+    private SinglyLinkedList<Month> monthActivity;
     private String username;
     private String channelName;
     private String countryName;
@@ -27,6 +27,11 @@ public class Influencer
         this.channelName = channelName;
         this.countryName = countryName;
         this.pageTopic = pageTopic;
+        this.monthActivity = new SinglyLinkedList<Month>();
+    }
+    
+    public void addMonthActivity(Month month) {
+        monthActivity.add(month);
     }
 
 

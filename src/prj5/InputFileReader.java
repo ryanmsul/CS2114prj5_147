@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.Scanner;
+import student.IOHelper;
 
 // -------------------------------------------------------------------------
 /**
@@ -58,24 +59,26 @@ public class InputFileReader
         SinglyLinkedList<Influencer> parsedList =
             new SinglyLinkedList<Influencer>();
 
-        File newFile = new File(postsFile);
-        Scanner file = new Scanner(newFile);
+        Scanner inStream = IOHelper.createScanner(postsFile);
+        inStream.nextLine();// skip header
+        while (inStream.hasNextLine()) {
 
-        while (file.hasNextLine())
-        {
-            String read = file.nextLine();
-            String[] tokens = read.split(",\\s*");
 
-            String month = tokens[0];
-            String username = tokens[1];
-            String channel = tokens[2];
-            String countryName = tokens[3];
-            String pageTopic = tokens[4];
-            int likes = Integer.valueOf(tokens[5]);
-            int posts = Integer.valueOf(tokens[6]);
-            int followers = Integer.valueOf(tokens[7]);
-            int comments = Integer.valueOf(tokens[8]);
-            int views = Integer.valueOf(tokens[9]);
+            String line = inStream.nextLine().replaceAll(" ", "");
+            String[] values = line.split(",");
+            String month = values[0];
+            String username = values[1];
+            String channel = values[2];
+            String country = values[3];
+            String mainTopic = values[4];
+            int likes = toInt(values[5]);
+            int posts = toInt(values[6]);
+            int followers = toInt(values[7]);
+            int comments = toInt(values[8]);
+            int views = toInt(values[9]);
+
+
+            // TODO : Populate the Classes created to store the data
 
             if (!isAValidMonth(month))
             {
@@ -84,7 +87,7 @@ public class InputFileReader
             }
             
             Influencer newInfluencer =
-                new Influencer(username, channel, countryName, pageTopic);
+                new Influencer(username, channel, country, mainTopic);
             
             if(!parsedList.contains(newInfluencer)) {
                 
@@ -115,8 +118,26 @@ public class InputFileReader
            
 
         }
-        file.close();
+        inStream.close();
         return parsedList;
+    }
+
+    /**
+     *  help convert the string data to an integer 
+     *  
+     *  @return the number of the string
+     *  
+     *  @param num
+     *          the string / number being passed in
+     */
+    private int toInt(String num)
+    {
+        try{
+            return Integer.parseInt(num);
+        }
+        catch(Exception e){
+            return 0;
+        }
     }
 
 
@@ -147,7 +168,7 @@ public class InputFileReader
      */
     private boolean isAValidMonth(String month)
     {
-        month.toUpperCase();
+        month = month.toUpperCase();
         if (month.equals("JANUARY") || month.equals("FEBRUARY")
             || month.equals("MARCH") || month.equals("APRIL")
             || month.equals("MAY") || month.equals("JUNE")

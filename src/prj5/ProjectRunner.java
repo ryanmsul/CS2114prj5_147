@@ -1,6 +1,7 @@
 package prj5;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 // -------------------------------------------------------------------------
 /**
@@ -13,8 +14,16 @@ import java.io.IOException;
 public class ProjectRunner
 {
 
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * @param args
+     * @throws IOException
+     * @throws ParseException
+     * @throws MonthException
+     */
     public static void main(String[] args)
-        throws IOException
+        throws IOException, ParseException, MonthException
     {
 
         // Changes input file based on passed arguments
@@ -34,10 +43,7 @@ public class ProjectRunner
 
         if (showConsole)
         {
-            /*
-             * TODO: For intermediate Submission - Should print the data on the
-             * console
-             */
+            System.out.print(filer);
         }
         if (showGUI)
         {

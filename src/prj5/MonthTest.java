@@ -41,5 +41,7 @@ public class MonthTest extends student.TestCase
         //Checked against a month with a different param value i.e month name -
         //False
         assertFalse(month.equals(differentMonthName));
+        //Checked against obj of a different class.
+        assertFalse(month.equals(obj));
     }        
 }

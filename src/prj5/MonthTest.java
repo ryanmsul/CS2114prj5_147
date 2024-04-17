@@ -2,14 +2,12 @@ package prj5;
 
 // -------------------------------------------------------------------------
 /**
- *  Write a one-sentence summary of your class here.
- *  Follow it with additional details about its purpose, what abstraction
- *  it represents, and how to use it.
+ *  Tests the method within the Month class.
  * 
- *  @author stark
+ *  @author Appiah Morgan(ajm7243)
  *  @version Apr 16, 2024
  */
-public class MonthTest
+public class MonthTest extends student.TestCase
 {
     //~ Fields ................................................................
     private Month month;
@@ -30,6 +28,18 @@ public class MonthTest
      */
     public void testEquals()
     {
-        
+        Month equivMonth = new Month("January", 4, 5, 10, 20, 50);
+        Month differentMonthName = new Month("Noctober", 4, 5, 10, 20, 50);
+        Object obj = new Object();
+        Month nullMonth = null;
+        //Checked against self - True
+        assertTrue(month.equals(month));
+        //Checked against equivalent object - True
+        assertFalse(month.equals(equivMonth));
+        //Checked against a null object - False
+        assertFalse(month.equals(nullMonth));
+        //Checked against a month with a different param value i.e month name -
+        //False
+        assertFalse(month.equals(differentMonthName));
     }        
 }

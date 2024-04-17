@@ -47,8 +47,13 @@ public class InputFileReader
      * @param file
      *            reads a file of posts and puts them in a linkedlist
      * @return a SinglyLinkedList of month objects
+     * @throws MonthException 
+     *              throws when the month passed is not a valid month
+     * @throws FileNotFoundException 
+     *              if the file is not a valid file
      */
-    public SinglyLinkedList<Influencer> readAllPosts(String postsFile)
+    public SinglyLinkedList<Influencer> readAllPosts(String postsFile) 
+        throws MonthException, FileNotFoundException
     {
         SinglyLinkedList<Influencer> parsedList =
             new SinglyLinkedList<Influencer>();
@@ -98,7 +103,7 @@ public class InputFileReader
 
 
     /**
-     * reads a single posts given the varaibles from above an adds turns it into
+     * reads a single posts given the variables from above an adds turns it into
      * a month object
      */
     private Month readSinglePosts(

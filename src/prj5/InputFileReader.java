@@ -107,12 +107,12 @@ public class InputFileReader
     private boolean isAValidMonth(String month) 
     {
         month.toUpperCase();
-        if (month.equals(Month.MONTH[0]) || month.equals(Month.MONTH[1]) || 
-            month.equals(Month.MONTH[2]) || month.equals(Month.MONTH[3]) || 
-            month.equals(Month.MONTH[4]) || month.equals(Month.MONTH[5]) || 
-            month.equals(Month.MONTH[6]) || month.equals(Month.MONTH[7]) || 
-            month.equals(Month.MONTH[8]) || month.equals(Month.MONTH[9]) || 
-            month.equals(Month.MONTH[10]) || month.equals(Month.MONTH[11])) 
+        if (month.equals("JANUARY") || month.equals("FEBRUARY") || 
+            month.equals("MARCH") || month.equals("APRIL") || 
+            month.equals("MAY") || month.equals("JUNE") || 
+            month.equals("JULY") || month.equals("AUGUST") || 
+            month.equals("SEPTEMBER") || month.equals("OCTOBER") || 
+            month.equals("NOVEMBER") || month.equals("DECEMBER")) 
         {
             return true;
         }

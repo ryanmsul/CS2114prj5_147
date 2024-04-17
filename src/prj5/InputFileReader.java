@@ -44,7 +44,7 @@ public class InputFileReader
     /**
      * reads the posts file to to populate the linkedList full of month object
      * 
-     * @param file
+     * @param postsFile
      *            reads a file of posts and puts them in a linkedlist
      * @return a SinglyLinkedList of month objects
      * @throws MonthException 
@@ -82,20 +82,38 @@ public class InputFileReader
                 throw new MonthException(
                     "month given is not a valid month of " + "the week");
             }
-
+            
             Influencer newInfluencer =
                 new Influencer(username, channel, countryName, pageTopic);
+            
+            if(!parsedList.contains(newInfluencer)) {
+                
+                newInfluencer.addMonthActivity(
+                    readSinglePosts(
+                        month,
+                        likes,
+                        posts,
+                        followers,
+                        comments,
+                        views));
 
-            newInfluencer.addMonthActivity(
-                readSinglePosts(
-                    month,
-                    likes,
-                    posts,
-                    followers,
-                    comments,
-                    views));
+                parsedList.add(newInfluencer);
 
-            parsedList.add(newInfluencer);
+            }
+            else {
+                int influencerIndex = parsedList.lastIndexOf(newInfluencer);
+                
+                parsedList.get(influencerIndex).addMonthActivity(
+                    readSinglePosts(
+                        month,
+                        likes,
+                        posts,
+                        followers,
+                        comments,
+                        views));
+            }
+           
+
         }
         file.close();
         return parsedList;

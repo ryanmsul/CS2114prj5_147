@@ -11,6 +11,7 @@ package prj5;
  */
 public class SinglyLinkedList<T> implements LList<T>
 {
+    // note to help David
 
     private static class Node<D>
     {

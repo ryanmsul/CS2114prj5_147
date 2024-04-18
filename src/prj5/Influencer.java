@@ -16,6 +16,19 @@ public class Influencer
     private String countryName;
     private String pageTopic;
 
+    // ----------------------------------------------------------
+    /**
+     * Creates a new Influencer object with instance variable parameters
+     * 
+     * @param username
+     *            The username of the influencer.
+     * @param channelName
+     *            The channelName of the influencer.
+     * @param countryName
+     *            The countryName of the influencer.
+     * @param pageTopic
+     *            the pageTopic of the influencer.
+     */
     public Influencer(
         String username,
         String channelName,
@@ -30,30 +43,61 @@ public class Influencer
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * This method stores a Month object to a SLL, so an influencer's statistics
+     * can be calculated.
+     * 
+     * @param month
+     */
     public void addMonthActivity(Month month)
     {
         monthActivity.add(month);
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Getter for the Influencer's username
+     * 
+     * @return The influencer's username.
+     */
     public String getUsername()
     {
         return this.username;
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Getter for the Influencer's channelName
+     * 
+     * @return The influencer's channelName.
+     */
     public String getChannelName()
     {
         return this.channelName;
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Getter for the Influencer's countryName
+     * 
+     * @return The influencer's countryName.
+     */
     public String getCountryName()
     {
         return this.countryName;
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Getter for the Influencer's pageTopic
+     * 
+     * @return The influencer's pageTopic
+     */
     public String getPageTopic()
     {
         return this.pageTopic;
@@ -74,10 +118,11 @@ public class Influencer
         double followers = month.getFollowers();
         double comments = month.getComments();
 
-        if(followers == 0) {
+        if (followers == 0)
+        {
             return -1;
         }
-        
+
         return ((comments + likes) / followers) * 100;
 
     }
@@ -109,8 +154,9 @@ public class Influencer
                 comments += monthActivity.get(i).getComments();
             }
         }
-        
-        if(followers == 0) {
+
+        if (followers == 0)
+        {
             return -1;
         }
 
@@ -133,10 +179,11 @@ public class Influencer
         double comments = month.getComments();
         double views = month.getViews();
 
-        if(views == 0) {
+        if (views == 0)
+        {
             return -1;
         }
-        
+
         return ((comments + likes) / views) * 100;
     }
 
@@ -166,8 +213,9 @@ public class Influencer
                 comments += monthActivity.get(i).getComments();
             }
         }
-        
-        if(views == 0) {
+
+        if (views == 0)
+        {
             return -1;
         }
 
@@ -175,6 +223,7 @@ public class Influencer
     }
 
 
+    @Override
     public boolean equals(Object obj)
     {
         if (this == obj)

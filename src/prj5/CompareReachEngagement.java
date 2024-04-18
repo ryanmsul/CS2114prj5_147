@@ -4,8 +4,8 @@ import java.util.Comparator;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * This is a helper class which implements the Comprator object to sort
+ * Influencers by ReachEngagement.
  * 
  * @author jesse
  * @version Apr 16, 2024
@@ -17,16 +17,16 @@ public class CompareReachEngagement
     @Override
     public int compare(Influencer o1, Influencer o2)
     {
-        if(o1.getReachEngagementRate()>o2.getReachEngagementRate() ) {
+        if (o1.getReachEngagementRate() > o2.getReachEngagementRate())
+        {
             return 1;
         }
-        else if(o1.getReachEngagementRate()<o2.getReachEngagementRate() ) {
+        else if (o1.getReachEngagementRate() < o2.getReachEngagementRate())
+        {
             return -1;
         }
         return 0;
 
     }
-    
-    
-    
+
 }

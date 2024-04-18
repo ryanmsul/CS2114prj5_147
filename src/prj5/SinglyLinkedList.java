@@ -4,16 +4,16 @@ import java.util.Comparator;
 
 // -------------------------------------------------------------------------
 /**
- *This is a Singly linked list that uses nodes
+ * This is a Singly linked list that uses nodes
  * 
- *  @author ddmat
- *  @version Apr 16, 2024
- * @param <T> The generic parameter
+ * @author ddmat
+ * @version Apr 16, 2024
+ * @param <T>
+ *            The generic parameter
  */
-public class SinglyLinkedList<T> implements LList<T>
+public class SinglyLinkedList<T>
+    implements LList<T>
 {
-    // note to help David
-
     private static class Node<D>
     {
 
@@ -227,6 +227,10 @@ public class SinglyLinkedList<T> implements LList<T>
     @Override
     public boolean remove(T obj)
     {
+        if (obj == null)
+        {
+            return false;
+        }
 
         if ((head != null) && contains(obj))
         {
@@ -242,7 +246,7 @@ public class SinglyLinkedList<T> implements LList<T>
             // account for 2+ size
             while (size() >= 2 && (current != null))
             {
-                if ((obj.equals(current.next.data)))
+                if (obj.equals(current.next.data))
                 {
                     if (current.next.next != null)
                     {
@@ -284,33 +288,30 @@ public class SinglyLinkedList<T> implements LList<T>
         {
             throw new IndexOutOfBoundsException("Index is out of bounds");
         }
-        else
+        Node<T> current = head;
+        int currentIndex = 0;
+
+        while (current.next != null)
         {
-            Node<T> current = head;
-            int currentIndex = 0;
-
-            while (current.next != null)
+            if (index == 0)
             {
-                if (index == 0)
-                {
-                    head = current.next;
-                    size--;
-                    return true;
-                }
-                else if ((currentIndex + 1) == index)
-                {
-                    Node<T> newNext = current.next.next;
-                    current.setNext(newNext);
-                    size--;
-                    return true;
-                }
-                current = current.next;
-                currentIndex++;
+                head = current.next;
+                size--;
+                return true;
             }
-
-            // if the element was never found, this also handles empty case
-            throw new IndexOutOfBoundsException("Index is out of bounds");
+            else if ((currentIndex + 1) == index)
+            {
+                Node<T> newNext = current.next.next;
+                current.setNext(newNext);
+                size--;
+                return true;
+            }
+            current = current.next;
+            currentIndex++;
         }
+
+        // if the element was never found, this also handles empty case
+        throw new IndexOutOfBoundsException("Index is out of bounds");
     }
 
 
@@ -513,55 +514,63 @@ public class SinglyLinkedList<T> implements LList<T>
         return false;
 
     }
-    
-    
-   
+
+
     // ----------------------------------------------------------
     /**
      * A linked list implementation of insertion sort
-     * @param comparer The comparator used for the sort
+     * 
+     * @param comparer
+     *            The comparator used for the sort
      */
-    public void insertionSort(Comparator <? super T> comparer) {
-        if(size >1) {
+    public void insertionSort(Comparator<? super T> comparer)
+    {
+        if (size > 1)
+        {
             Node<T> unsorted = head.next();
             Node<T> sorted = head;
             sorted.setNext(null);
-            
-            while(unsorted != null) {
+
+            while (unsorted != null)
+            {
                 Node<T> nodeToInsert = unsorted;
                 unsorted = unsorted.next();
                 insertInOrder(nodeToInsert, comparer);
             }
-            
+
         }
-        
+
     }
-    
-    
-    
-    private void insertInOrder(Node<T> nodeToInsert, Comparator <? super T> comparer ) {
+
+
+    private
+        void
+        insertInOrder(Node<T> nodeToInsert, Comparator<? super T> comparer)
+    {
         T nodeData = nodeToInsert.getData();
         Node<T> current = head;
         Node<T> prev = null;
-        
-        //find insertion location
-        while((current!=null) && (comparer.compare(nodeData, current.getData()))>0) {
+
+        // find insertion location
+        while ((current != null)
+            && (comparer.compare(nodeData, current.getData())) > 0)
+        {
             prev = current;
             current = current.next();
-            
+
         }
-        
-        //complete insertion
-        if(prev != null) {
+
+        // complete insertion
+        if (prev != null)
+        {
             prev.setNext(nodeToInsert);
             nodeToInsert.setNext(current);
         }
-        else {
+        else
+        {
             nodeToInsert.setNext(head);
             head = nodeToInsert;
         }
     }
-    
 
 }
-

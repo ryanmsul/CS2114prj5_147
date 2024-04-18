@@ -17,7 +17,6 @@ public class CompareChannelName
     @Override
     public int compare(Influencer o1, Influencer o2)
     {
-        // TODO Auto-generated method stub
-        return 0;
+        return o1.getUsername().compareTo(o2.getUsername());
     }
 }

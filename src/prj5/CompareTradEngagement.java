@@ -16,7 +16,12 @@ public class CompareTradEngagement
     @Override
     public int compare(Influencer o1, Influencer o2)
     {
-        // TODO Auto-generated method stub
+        if(o1.getTraditionalEngagementRate()>o2.getTraditionalEngagementRate() ) {
+            return 1;
+        }
+        else if(o1.getTraditionalEngagementRate()<o2.getTraditionalEngagementRate() ) {
+            return -1;
+        }
         return 0;
     }
 }

@@ -17,7 +17,16 @@ public class CompareReachEngagement
     @Override
     public int compare(Influencer o1, Influencer o2)
     {
-        // TODO Auto-generated method stub
+        if(o1.getReachEngagementRate()>o2.getReachEngagementRate() ) {
+            return 1;
+        }
+        else if(o1.getReachEngagementRate()<o2.getReachEngagementRate() ) {
+            return -1;
+        }
         return 0;
+
     }
+    
+    
+    
 }

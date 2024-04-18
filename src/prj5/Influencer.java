@@ -58,31 +58,90 @@ public class Influencer
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Calculates the engagement rate for a given specific month
+     * @param month The month to be calculated
+     * @return The traditional engagement calculation
+     */
     public double getTraditionalEngagementRate(Month month)
     {
-        // TODO: Implement with Month class
-        return -1;
+        double likes = month.getLikes();
+        double followers = month.getFollowers();
+        double comments = month.getComments();
+        
+        return ((comments + likes)/ followers) * 100;
+        
+        
     }
 
 
-    public double getTraditionalEngagementRate(Month startMonth, Month endMonth)
+    // ----------------------------------------------------------
+    /**
+     * Gets traditional engagement rate for first quarter first 3 months)
+     * @return The engagement rate calculation
+     */
+    public double getTraditionalEngagementRate()
     {
-        // TODO: Implement with Month class
-        return -1;
+        int startIndex = 0;
+        int endIndex = 2;
+        
+        double likes = 0;
+        double followers = 0;
+        double comments = 0;
+        
+        
+        for(int i = startIndex; i<= endIndex; i++) {
+            likes += monthActivity.get(i).getLikes();
+            followers += monthActivity.get(i).getFollowers();
+            comments += monthActivity.get(i).getComments();
+            
+        }
+        
+        return ((comments + likes)/ followers) * 100;
+        
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Calculates the engagement rate for a given specific month
+     * @param month The month to be calculated
+     * @return The reach engagement calculation
+     */
     public double getReachEngagementRate(Month month)
     {
-        // TODO: Implement with Month class
-        return -1;
+        double likes = month.getLikes();
+        double comments = month.getComments();
+        double views = month.getViews();
+        
+        return  ( (comments + likes)/ views) * 100;
     }
 
 
-    public double getReachEngagementRate(Month startMonth, Month endMonth)
+    // ----------------------------------------------------------
+    /**
+     * calculates engagement rate for first quarter (first 3 months)
+     * @return The reach engagement rate
+     */
+    public double getReachEngagementRate()
     {
-        // TODO: Implement with Month class
-        return -1;
+        int startIndex = 0;
+        int endIndex = 2;
+        
+        double likes = 0;
+        double comments = 0;
+        double views = 0;
+        
+        
+        for(int i = startIndex; i<= endIndex; i++) {
+            likes += monthActivity.get(i).getLikes();
+            views += monthActivity.get(i).getViews();
+            comments += monthActivity.get(i).getComments();
+            
+        }
+        
+        return  ( (comments + likes)/ views) * 100;
     }
 
 

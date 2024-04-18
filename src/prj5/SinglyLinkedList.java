@@ -8,6 +8,7 @@ package prj5;
  * 
  *  @author ddmat
  *  @version Apr 16, 2024
+ * @param <T> The generic parameter
  */
 public class SinglyLinkedList<T> implements LList<T>
 {

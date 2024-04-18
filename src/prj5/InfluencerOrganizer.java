@@ -20,6 +20,8 @@ public class InfluencerOrganizer
     }
 
 
+    
+    
     public void sortByName()
     {
         Collections.sort(influencers, new CompareChannelName());
@@ -36,4 +38,6 @@ public class InfluencerOrganizer
     {
         Collections.sort(influencers, new CompareReachEngagement());
     }
+    
+    
 }

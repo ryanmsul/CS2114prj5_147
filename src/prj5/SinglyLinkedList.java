@@ -1,10 +1,10 @@
 package prj5;
 
+import java.util.Comparator;
+
 // -------------------------------------------------------------------------
 /**
- *  Write a one-sentence summary of your class here.
- *  Follow it with additional details about its purpose, what abstraction
- *  it represents, and how to use it.
+ *This is a Singly linked list that uses nodes
  * 
  *  @author ddmat
  *  @version Apr 16, 2024
@@ -513,6 +513,55 @@ public class SinglyLinkedList<T> implements LList<T>
         return false;
 
     }
+    
+    
+   
+    // ----------------------------------------------------------
+    /**
+     * A linked list implementation of insertion sort
+     * @param comparer The comparator used for the sort
+     */
+    public void insertionSort(Comparator <? super T> comparer) {
+        if(size >1) {
+            Node<T> unsorted = head.next();
+            Node<T> sorted = head;
+            sorted.setNext(null);
+            
+            while(unsorted != null) {
+                Node<T> nodeToInsert = unsorted;
+                unsorted = unsorted.next();
+                insertInOrder(nodeToInsert, comparer);
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    private void insertInOrder(Node<T> nodeToInsert, Comparator <? super T> comparer ) {
+        T nodeData = nodeToInsert.getData();
+        Node<T> current = head;
+        Node<T> prev = null;
+        
+        //find insertion location
+        while((current!=null) && (comparer.compare(nodeData, current.getData()))>0) {
+            prev = current;
+            current = current.next();
+            
+        }
+        
+        //complete insertion
+        if(prev != null) {
+            prev.setNext(nodeToInsert);
+            nodeToInsert.setNext(current);
+        }
+        else {
+            nodeToInsert.setNext(head);
+            head = nodeToInsert;
+        }
+    }
+    
 
 }
 

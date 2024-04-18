@@ -45,34 +45,34 @@ public class ProjectRunner
         {
             SinglyLinkedList<Influencer> input = filer.getInput();
             
-            System.out.println(filer);
-            System.out.println(input.toString());
+
             
-            for(int i = 0; i< input.size(); i++) {
-                System.out.println(input.get(i).getTraditionalEngagementRate());
-            }
-            
-            System.out.println("------------");
-            input.insertionSort(new CompareTradEngagement());
-            
-            for(int i = 0; i< input.size(); i++) {
-                System.out.println(input.get(i).getTraditionalEngagementRate());
-            }
-            
-            System.out.println("------------");
-            input.insertionSort(new CompareReachEngagement());
-            
-            for(int i = 0; i< input.size(); i++) {
-                System.out.println(input.get(i).getReachEngagementRate());
-            }
-            
-            System.out.println("------------");
+        
             input.insertionSort(new CompareChannelName());
             
-            for(int i = 0; i< input.size(); i++) {
-                System.out.println(input.get(i).getUsername());
+            for(int i = input.size()-1; i>=0; i--) {
+                System.out.println(input.get(i).getChannelName());
+                System.out.print("traditional: ");
+                System.out.println(input.get(i).getTraditionalEngagementRate());
+                System.out.println("==========");
+                
+                
+                
             }
+            System.out.println("**********\n**********");
             
+            
+            input.insertionSort(new CompareReachEngagement());
+            
+            for(int i = input.size()-1; i>=0; i--) {
+                System.out.println(input.get(i).getChannelName());
+                System.out.print("reach: ");
+                System.out.println(input.get(i).getReachEngagementRate());
+                System.out.println("==========");
+                
+                
+                
+            }
             
             
             

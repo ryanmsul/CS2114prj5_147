@@ -28,8 +28,10 @@ public class Influencer
         this.pageTopic = pageTopic;
         this.monthActivity = new SinglyLinkedList<Month>();
     }
-    
-    public void addMonthActivity(Month month) {
+
+
+    public void addMonthActivity(Month month)
+    {
         monthActivity.add(month);
     }
 
@@ -61,7 +63,9 @@ public class Influencer
     // ----------------------------------------------------------
     /**
      * Calculates the engagement rate for a given specific month
-     * @param month The month to be calculated
+     * 
+     * @param month
+     *            The month to be calculated
      * @return The traditional engagement calculation
      */
     public double getTraditionalEngagementRate(Month month)
@@ -69,44 +73,50 @@ public class Influencer
         double likes = month.getLikes();
         double followers = month.getFollowers();
         double comments = month.getComments();
-        
-        return ((comments + likes)/ followers) * 100;
-        
-        
+
+        return ((comments + likes) / followers) * 100;
+
     }
 
 
     // ----------------------------------------------------------
     /**
      * Gets traditional engagement rate for first quarter first 3 months)
+     * 
      * @return The engagement rate calculation
      */
     public double getTraditionalEngagementRate()
     {
-        int startIndex = 0;
-        int endIndex = 2;
-        
+
         double likes = 0;
         double followers = 0;
         double comments = 0;
-        
-        
-        for(int i = startIndex; i<= endIndex; i++) {
-            likes += monthActivity.get(i).getLikes();
-            followers += monthActivity.get(i).getFollowers();
-            comments += monthActivity.get(i).getComments();
-            
+
+        for (int i = 0; i < monthActivity.size(); i++)
+        {
+
+            String curMonth = monthActivity.get(i).getMonth().toUpperCase();
+            if (curMonth.equals("JANUARY") || curMonth.equals("FEBRUARY")
+                || curMonth.equals("MARCH"))
+            {
+
+                likes += monthActivity.get(i).getLikes();
+                followers += monthActivity.get(i).getFollowers();
+                comments += monthActivity.get(i).getComments();
+            }
         }
-        
-        return ((comments + likes)/ followers) * 100;
-        
+
+        return ((comments + likes) / followers) * 100;
+
     }
 
 
     // ----------------------------------------------------------
     /**
      * Calculates the engagement rate for a given specific month
-     * @param month The month to be calculated
+     * 
+     * @param month
+     *            The month to be calculated
      * @return The reach engagement calculation
      */
     public double getReachEngagementRate(Month month)
@@ -114,34 +124,38 @@ public class Influencer
         double likes = month.getLikes();
         double comments = month.getComments();
         double views = month.getViews();
-        
-        return  ( (comments + likes)/ views) * 100;
+
+        return ((comments + likes) / views) * 100;
     }
 
 
     // ----------------------------------------------------------
     /**
      * calculates engagement rate for first quarter (first 3 months)
+     * 
      * @return The reach engagement rate
      */
     public double getReachEngagementRate()
     {
-        int startIndex = 0;
-        int endIndex = 2;
-        
         double likes = 0;
         double comments = 0;
         double views = 0;
-        
-        
-        for(int i = startIndex; i<= endIndex; i++) {
-            likes += monthActivity.get(i).getLikes();
-            views += monthActivity.get(i).getViews();
-            comments += monthActivity.get(i).getComments();
-            
+
+        for (int i = 0; i < monthActivity.size(); i++)
+        {
+
+            String curMonth = monthActivity.get(i).getMonth().toUpperCase();
+            if (curMonth.equals("JANUARY") || curMonth.equals("FEBRUARY")
+                || curMonth.equals("MARCH"))
+            {
+
+                likes += monthActivity.get(i).getLikes();
+                views += monthActivity.get(i).getViews();
+                comments += monthActivity.get(i).getComments();
+            }
         }
-        
-        return  ( (comments + likes)/ views) * 100;
+
+        return ((comments + likes) / views) * 100;
     }
 
 

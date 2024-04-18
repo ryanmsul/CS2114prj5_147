@@ -20,24 +20,36 @@ public class InfluencerOrganizer
     }
 
 
-    /*
     
+    
+    // ----------------------------------------------------------
+    /**
+     * Sorts the influencer list by channel name
+     */
     public void sortByName()
     {
-        Collections.sort(influencers, new CompareChannelName());
+        influencers.insertionSort(new CompareChannelName());
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Sorts the influencer list by traditional engagement rate
+     */
     public void sortByTradEngagement()
     {
-        Collections.sort(influencers, new CompareTradEngagement());
+        influencers.insertionSort(new CompareTradEngagement());
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Sorts the influencer list by reach engagement rate
+     */
     public void sortByReachEngagement()
     {
-        Collections.sort(influencers, new CompareReachEngagement());
+        influencers.insertionSort(new CompareReachEngagement());
     }
     
-    */
+    
 }

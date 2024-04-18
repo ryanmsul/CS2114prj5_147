@@ -43,7 +43,25 @@ public class ProjectRunner
 
         if (showConsole)
         {
-            System.out.print(filer);
+            SinglyLinkedList<Influencer> input = filer.getInput();
+            
+            System.out.println(filer);
+            System.out.println(input.toString());
+            
+            for(int i = 0; i< input.size(); i++) {
+                System.out.println(input.get(i).getTraditionalEngagementRate());
+            }
+            
+            System.out.println("------------");
+            input.insertionSort(new CompareTradEngagement());
+            
+            for(int i = 0; i< input.size(); i++) {
+                System.out.println(input.get(i).getTraditionalEngagementRate());
+            }
+            
+            
+            
+            
         }
         if (showGUI)
         {

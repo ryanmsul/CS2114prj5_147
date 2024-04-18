@@ -180,4 +180,12 @@ public class InputFileReader
         }
         return false;
     }
+    
+    // ----------------------------------------------------------
+    /**
+     * @return The input list
+     */
+    public SinglyLinkedList<Influencer> getInput(){
+        return input;
+    }
 }

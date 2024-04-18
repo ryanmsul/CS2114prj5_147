@@ -6,16 +6,16 @@ package prj5;
  *  it represents, and how to use it.
  * 
  *  @author ddmat
- *  @version Apr 17, 2024
+ *  @version Apr 18, 2024
  */
-public class CompareChannelNameTest extends student.TestCase
+public class CompareReachEngagementTest extends student.TestCase
 {
     //~ Fields ................................................................
 
     private Influencer iA;
     private Influencer iB;
     private Influencer iADup;
-    private CompareChannelName comparer;
+    private CompareReachEngagement comparer;
     
     //~ Constructors ..........................................................
 
@@ -26,17 +26,29 @@ public class CompareChannelNameTest extends student.TestCase
         "France",
         "Frogs");
         
+        iA.addMonthActivity(new Month("January", 1, 1, 1,1,1));
+        iA.addMonthActivity(new Month("February", 1, 1, 1,1,1));
+        iA.addMonthActivity(new Month("March", 1, 1, 1,1,1));
+        
         iB = new Influencer("B name",
             "B channel",
             "France",
             "Frogs");
         
+        iB.addMonthActivity(new Month("January", 2, 4, 6,8,10));
+        iB.addMonthActivity(new Month("February", 2, 4, 6,8,10));
+        iB.addMonthActivity(new Month("March", 2, 4, 6,8,10));
+        
+        
          iADup = new Influencer("A name",
              "A channel",
              "France",
              "Frogs");
+         iADup.addMonthActivity(new Month("January", 1, 1, 1,1,1));
+         iADup.addMonthActivity(new Month("February", 1, 1, 1,1,1));
+         iADup.addMonthActivity(new Month("March", 1, 1, 1,1,1));
         
-        comparer = new CompareChannelName();
+        comparer = new CompareReachEngagement();
         
     }
     
@@ -44,14 +56,12 @@ public class CompareChannelNameTest extends student.TestCase
     /**
      * tests comparing channel names
      */
-    public void testCompareChannelName() {
+    public void testCompareReachEngagement() {
         
-        assertEquals(-1,comparer.compare(iA,iB));
-        assertEquals(1,comparer.compare(iB,iA));
+        assertEquals(1,comparer.compare(iA,iB));
+        assertEquals(-1,comparer.compare(iB,iA));
         assertEquals(0,comparer.compare(iA,iADup));
         
         
     }
-    
-    
 }

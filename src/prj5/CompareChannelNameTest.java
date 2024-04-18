@@ -46,7 +46,9 @@ public class CompareChannelNameTest extends student.TestCase
      */
     public void testCompareChannelName() {
         
-        assertEquals(1,iA.getUsername().compareTo(iB.getUsername()));
+        assertEquals(-1,iA.getUsername().compareTo(iB.getUsername()));
+        assertEquals(1,iB.getUsername().compareTo(iA.getUsername()));
+        assertEquals(0,iA.getUsername().compareTo(iADup.getUsername()));
         
         
     }

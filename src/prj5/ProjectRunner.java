@@ -52,9 +52,9 @@ public class ProjectRunner
             
             for(int i = input.size()-1; i>=0; i--) {
                 System.out.println(input.get(i).getChannelName());
-                System.out.print("traditional: ");
-                System.out.println(input.get(i).getTraditionalEngagementRate());
-                System.out.println("==========");
+                System.out.printf("traditional: %.1f ", input.get(i).getTraditionalEngagementRate());
+           //     System.out.println(input.get(i).getTraditionalEngagementRate());
+                System.out.println("\n==========");
                 
                 
                 
@@ -66,9 +66,8 @@ public class ProjectRunner
             
             for(int i = input.size()-1; i>=0; i--) {
                 System.out.println(input.get(i).getChannelName());
-                System.out.print("reach: ");
-                System.out.println(input.get(i).getReachEngagementRate());
-                System.out.println("==========");
+                System.out.printf("reach: %.1f ", input.get(i).getReachEngagementRate() );
+                System.out.println("\n==========");
                 
                 
                 

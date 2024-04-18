@@ -17,6 +17,6 @@ public class CompareChannelName
     @Override
     public int compare(Influencer o1, Influencer o2)
     {
-        return o1.getUsername().compareTo(o2.getUsername());
+        return o1.getUsername().toUpperCase().compareTo(o2.getUsername().toUpperCase());
     }
 }

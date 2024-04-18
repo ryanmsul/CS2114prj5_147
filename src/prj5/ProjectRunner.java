@@ -59,6 +59,20 @@ public class ProjectRunner
                 System.out.println(input.get(i).getTraditionalEngagementRate());
             }
             
+            System.out.println("------------");
+            input.insertionSort(new CompareReachEngagement());
+            
+            for(int i = 0; i< input.size(); i++) {
+                System.out.println(input.get(i).getReachEngagementRate());
+            }
+            
+            System.out.println("------------");
+            input.insertionSort(new CompareChannelName());
+            
+            for(int i = 0; i< input.size(); i++) {
+                System.out.println(input.get(i).getUsername());
+            }
+            
             
             
             

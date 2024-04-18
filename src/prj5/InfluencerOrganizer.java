@@ -20,7 +20,7 @@ public class InfluencerOrganizer
     }
 
 
-    
+    /*
     
     public void sortByName()
     {
@@ -39,5 +39,5 @@ public class InfluencerOrganizer
         Collections.sort(influencers, new CompareReachEngagement());
     }
     
-    
+    */
 }

@@ -22,6 +22,8 @@ public class MonthTest extends student.TestCase
         month = new Month("January", 4, 5, 10, 20, 50);
     }
     
+    
+    
     /**
      * Tests that the equals method returns the expected output in
      * all the scenarios.

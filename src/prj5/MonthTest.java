@@ -37,7 +37,7 @@ public class MonthTest extends student.TestCase
         //Checked against self - True
         assertTrue(month.equals(month));
         //Checked against equivalent object - True
-        assertFalse(month.equals(equivMonth));
+        assertTrue(month.equals(equivMonth));
         //Checked against a null object - False
         assertFalse(month.equals(nullMonth));
         //Checked against a month with a different param value i.e month name -

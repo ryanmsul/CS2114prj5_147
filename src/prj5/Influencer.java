@@ -145,18 +145,28 @@ public class Influencer
         {
 
             String curMonth = monthActivity.get(i).getMonth().toUpperCase();
-            if (curMonth.equals("JANUARY") || curMonth.equals("FEBRUARY")
-                || curMonth.equals("MARCH"))
-            {
+            if (curMonth.equals("JANUARY") || curMonth.equals("FEBRUARY")|| curMonth.equals("MARCH")){
 
                 likes += monthActivity.get(i).getLikes();
-                followers += monthActivity.get(i).getFollowers();
                 comments += monthActivity.get(i).getComments();
             }
         }
-
-        if (followers == 0)
+        
+        for (int i = 0; i < monthActivity.size(); i++)
         {
+
+            String curMonth = monthActivity.get(i).getMonth().toUpperCase();
+            if (curMonth.equals("MARCH")){
+
+                followers = monthActivity.get(i).getFollowers();
+            }
+        }
+        
+        
+        
+        
+        
+        if(followers == 0) {
             return -1;
         }
 

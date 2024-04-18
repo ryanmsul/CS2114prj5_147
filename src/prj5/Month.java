@@ -2,13 +2,13 @@ package prj5;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * Creates a "Month" class that tracks all the data of an influencer over 
+ * a given month. (Likes, posts, followers, comments, and views).
  * 
  * @author Appiah Morgan(ajm7243)
  * @version Apr 16, 2024
  */
-public class Month
+public class Month 
 {
     // ~ Fields ................................................................
     private String month;

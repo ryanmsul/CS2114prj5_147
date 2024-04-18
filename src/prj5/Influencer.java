@@ -74,6 +74,10 @@ public class Influencer
         double followers = month.getFollowers();
         double comments = month.getComments();
 
+        if(followers == 0) {
+            return -1;
+        }
+        
         return ((comments + likes) / followers) * 100;
 
     }
@@ -105,6 +109,10 @@ public class Influencer
                 comments += monthActivity.get(i).getComments();
             }
         }
+        
+        if(followers == 0) {
+            return -1;
+        }
 
         return ((comments + likes) / followers) * 100;
 
@@ -125,6 +133,10 @@ public class Influencer
         double comments = month.getComments();
         double views = month.getViews();
 
+        if(views == 0) {
+            return -1;
+        }
+        
         return ((comments + likes) / views) * 100;
     }
 
@@ -153,6 +165,10 @@ public class Influencer
                 views += monthActivity.get(i).getViews();
                 comments += monthActivity.get(i).getComments();
             }
+        }
+        
+        if(views == 0) {
+            return -1;
         }
 
         return ((comments + likes) / views) * 100;

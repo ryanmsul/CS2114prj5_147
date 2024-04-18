@@ -124,6 +124,7 @@ public class Input2023FReferenceTest
      * from StdOut and compares it to the expect output (stored in
      * InfluencerOutput_2.txt)
      * 
+     * @throws java.io.IOException
      * @throws MonthException
      * @throws ParseException
      */

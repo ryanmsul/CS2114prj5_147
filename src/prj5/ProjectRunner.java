@@ -1,5 +1,6 @@
 package prj5;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 
@@ -20,23 +21,51 @@ public class ProjectRunner
      * 
      * @param args
      * @throws IOException
-     * @throws MonthException
      */
     public static void main(String[] args)
-        throws IOException,
-        MonthException
+        throws IOException
     {
 
         // Changes input file based on passed arguments
-        InputFileReader filer;
+        InputFileReader filer = null;
 
         if (args.length > 0)
         {
-            filer = new InputFileReader(args[0]);
+            try
+            {
+                filer = new InputFileReader(args[0]);
+            }
+            catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            catch (MonthException e)
+            {
+                e.printStackTrace();
+            }
         }
         else
         {
-            filer = new InputFileReader("SampleInput1_2023.csv");
+            try
+            {
+                filer = new InputFileReader("SampleInput1_2023.csv");
+            }
+            catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            catch (MonthException e)
+            {
+                e.printStackTrace();
+            }
         }
 
         final boolean showConsole = true;

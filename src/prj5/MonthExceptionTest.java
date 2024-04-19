@@ -34,13 +34,13 @@ public class MonthExceptionTest extends student.TestCase
         Exception thrown = null;
         
         try {
-            i.addMonthActivity(new Month("Movember",1,2,3,4,5));
+            i.addMonthActivity(new Month("not real month",1,2,3,4,5));
         }
         catch(Exception e) {
             thrown = e;
         }
         
-        //assertNotNull(thrown);
+        assertNotNull(thrown);
         
         assertTrue(thrown instanceof MonthException);
         

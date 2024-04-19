@@ -1,5 +1,7 @@
 package prj5;
 
+import java.util.Arrays;
+
 // -------------------------------------------------------------------------
 /**
  * Write a one-sentence summary of your class here. Follow it with additional
@@ -11,19 +13,10 @@ package prj5;
 public class SinglyLinkedListTest
     extends student.TestCase
 {
-    // ~ Fields ................................................................
-    /**
-     * list with items
-     */
     private SinglyLinkedList<String> list1;
-    /**
-     * list with no items
-     */
+    private SinglyLinkedList<String> otherList1;
+    private SinglyLinkedList<String> list2;
     private SinglyLinkedList<String> emptyList;
-
-    // ~ Constructors ..........................................................
-
-    // ~Public Methods ........................................................
 
     /**
      * initializes declared singly linked lists.
@@ -35,6 +28,18 @@ public class SinglyLinkedListTest
         list1.add("banana");
         list1.add("mango");
         list1.add("kiwi");
+
+        otherList1 = new SinglyLinkedList<String>();
+        otherList1.add("apple");
+        otherList1.add("banana");
+        otherList1.add("mango");
+        otherList1.add("kiwi");
+
+        list2 = new SinglyLinkedList<String>();
+        list2.add("strawberry");
+        list2.add("watermelon");
+        list2.add("pineapple");
+        list2.add("blueberry");
 
         emptyList = new SinglyLinkedList<String>();
     }
@@ -358,4 +363,32 @@ public class SinglyLinkedListTest
         assertEquals("{}", list1.toString());
     }
 
+
+    // ----------------------------------------------------------
+    /**
+     * Tests the toArray method of the SLL class.
+     */
+    public void testToArray()
+    {
+        Object[] l1Array = list1.toArray();
+        Object[] expected = { "apple", "banana", "mango", "kiwi" };
+
+        assertEquals(Arrays.toString(l1Array), Arrays.toString(expected));
+
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Tests the equals method of the SLL class
+     */
+    public void testEquals()
+    {
+        assertTrue(list1.equals(list1));
+        assertTrue(list1.equals(otherList1));
+        assertFalse(list1.equals(emptyList));
+        assertFalse(list1.equals(null));
+        assertFalse(list1.equals("bananas"));
+        assertFalse(list1.equals(list2));
+    }
 }

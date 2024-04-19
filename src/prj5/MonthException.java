@@ -12,7 +12,8 @@ public class MonthException
 {
     // ~ Constructors ..........................................................
     /**
-     * the constructor of the DailyMixDataException class
+     * Creates a unique exception that is thrown in scenarios where
+     * a month is not valid.
      * 
      * @param exception
      *          the name of the exception being thrown

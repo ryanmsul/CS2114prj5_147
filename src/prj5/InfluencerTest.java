@@ -47,8 +47,8 @@ public class InfluencerTest
  */
 public void testGetTraditionalEngagementRate() {
     
-    assertEquals(((3.0+3.0)/3.0)*100, iA.getTraditionalEngagementRate(),0.1);
-    assertEquals(((24+6)/18.0)*100.0, iB.getTraditionalEngagementRate(),0.1);
+    assertEquals(((3.0+3.0)/1.0)*100, iA.getTraditionalEngagementRate(),0.1);
+    assertEquals(((24+6)/6.0)*100.0, iB.getTraditionalEngagementRate(),0.1);
     
     
    

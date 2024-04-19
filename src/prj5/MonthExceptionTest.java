@@ -44,9 +44,9 @@ public class MonthExceptionTest
         {
             thrown = e;
         }
-
-        // assertNotNull(thrown);
-
+        
+        assertNotNull(thrown);
+        
         assertTrue(thrown instanceof MonthException);
 
     }

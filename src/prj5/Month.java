@@ -142,7 +142,7 @@ public class Month
     public static boolean isAValidMonth(String monthString)
     {
         String uppercaseMonth = monthString.toUpperCase();
-        if (uppercaseMonth.equals("JANUARY")
+        return (uppercaseMonth.equals("JANUARY")
             || uppercaseMonth.equals("FEBRUARY")
             || uppercaseMonth.equals("MARCH") || uppercaseMonth.equals("APRIL")
             || uppercaseMonth.equals("MAY") || uppercaseMonth.equals("JUNE")
@@ -150,11 +150,7 @@ public class Month
             || uppercaseMonth.equals("SEPTEMBER")
             || uppercaseMonth.equals("OCTOBER")
             || uppercaseMonth.equals("NOVEMBER")
-            || uppercaseMonth.equals("DECEMBER"))
-        {
-            return true;
-        }
-        return false;
+            || uppercaseMonth.equals("DECEMBER"));
     }
 
 

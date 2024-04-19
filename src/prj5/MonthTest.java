@@ -34,7 +34,6 @@ public class MonthTest
     {
         // Name, Likes, Posts, Followers, Comments, Views
         Month equivMonth = new Month("January", 4, 5, 10, 20, 50);
-        Month differentMonthName = new Month("Noctober", 4, 5, 10, 20, 50);
         Month differentMonthLikes = new Month("January", 20, 5, 10, 20, 50);
         Month differentMonthPosts = new Month("January", 4, 20, 10, 20, 50);
         Month differentMonthFollowers = new Month("January", 4, 5, 15, 24, 50);
@@ -42,6 +41,7 @@ public class MonthTest
         Month differentMonthViews = new Month("January", 4, 5, 10, 20, 5);
         Object obj = new Object();
         Month nullMonth = null;
+        Exception thrown = null;
         // Checked against self - True
         assertTrue(month.equals(month));
         // Checked against equivalent object - True
@@ -50,7 +50,18 @@ public class MonthTest
         assertFalse(month.equals(nullMonth));
         // Checked against a month with a different param value i.e month name -
         // False
-        assertFalse(month.equals(differentMonthName));
+        try 
+        {
+            Month differentMonthName = new Month("Noctober", 4, 5, 10, 20, 50);
+            month.equals(differentMonthName);    
+        }
+        catch (Exception e)
+        {
+            thrown = e;
+        }
+        assertNotNull(thrown);
+        assertTrue(thrown instanceof MonthException);
+        
         // Checked against obj of a different class.
         assertFalse(month.equals(obj));
         // Checked against a month with a different param value(likes)- False

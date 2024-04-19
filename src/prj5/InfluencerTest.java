@@ -2,8 +2,8 @@ package prj5;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * A test class for the Influencer class, tests all methods and instructions
+ * possible in the class.
  * 
  * @author ddmat
  * @version Apr 18, 2024
@@ -41,18 +41,22 @@ public class InfluencerTest
         iADup.addMonthActivity(new Month("March", 1, 1, 1, 1, 1));
     }
 
+
 // ----------------------------------------------------------
-/**
- * testGetTradititonalEngagementRate for first quarter
- */
-public void testGetTraditionalEngagementRate() {
-    
-    assertEquals(((3.0+3.0)/3.0)*100, iA.getTraditionalEngagementRate(),0.1);
-    assertEquals(((24+6)/18.0)*100.0, iB.getTraditionalEngagementRate(),0.1);
-    
-    
-   
-    
-    
-}
+    /**
+     * testGetTradititonalEngagementRate for first quarter
+     */
+    public void testGetTraditionalEngagementRate()
+    {
+
+        assertEquals(
+            ((3.0 + 3.0) / 3.0) * 100,
+            iA.getTraditionalEngagementRate(),
+            0.1);
+        assertEquals(
+            ((24 + 6) / 18.0) * 100.0,
+            iB.getTraditionalEngagementRate(),
+            0.1);
+
+    }
 }

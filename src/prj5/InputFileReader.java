@@ -59,6 +59,7 @@ public class InputFileReader
         SinglyLinkedList<Influencer> parsedList =
             new SinglyLinkedList<Influencer>();
 
+        @SuppressWarnings("resource")
         Scanner inStream = IOHelper.createScanner(postsFile);
         inStream.nextLine();// skip header
         while (inStream.hasNextLine()) {
@@ -161,19 +162,19 @@ public class InputFileReader
     /**
      * checks to see if the month is a valid month of the year
      * 
-     * @param month
+     * @param checkedMonth
      *            the month being checked
      * @return whether the month is a valid month or not
      */
-    private boolean isAValidMonth(String month)
+    private boolean isAValidMonth(String checkedMonth)
     {
-        month = month.toUpperCase();
-        if (month.equals("JANUARY") || month.equals("FEBRUARY")
-            || month.equals("MARCH") || month.equals("APRIL")
-            || month.equals("MAY") || month.equals("JUNE")
-            || month.equals("JULY") || month.equals("AUGUST")
-            || month.equals("SEPTEMBER") || month.equals("OCTOBER")
-            || month.equals("NOVEMBER") || month.equals("DECEMBER"))
+        String uppercaseMonth = checkedMonth.toUpperCase();
+        if (uppercaseMonth.equals("JANUARY") || uppercaseMonth.equals("FEBRUARY")
+            || uppercaseMonth.equals("MARCH") || uppercaseMonth.equals("APRIL")
+            || uppercaseMonth.equals("MAY") || uppercaseMonth.equals("JUNE")
+            || uppercaseMonth.equals("JULY") || uppercaseMonth.equals("AUGUST")
+            || uppercaseMonth.equals("SEPTEMBER") || uppercaseMonth.equals("OCTOBER")
+            || uppercaseMonth.equals("NOVEMBER") || uppercaseMonth.equals("DECEMBER"))
         {
             return true;
         }

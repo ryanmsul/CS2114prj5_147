@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * A test class for the SinglyLinkedList class, tests all methods and
+ * instructions possible in the SLL class.
  * 
  * @author ddmat
  * @version April 17, 2024

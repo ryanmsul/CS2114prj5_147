@@ -6,7 +6,7 @@ package prj5;
  * exception when the month isn't a valid month
  * 
  * @author ryanmsul12
- * @version Apr 7, 2024
+ * @version Apr 18, 2024
  */
 public class MonthException
     extends Exception

@@ -15,11 +15,14 @@ public class MonthExceptionTest
     /**
      * influencer for testing
      */
-    Influencer i;
+    private Influencer i;
     // ~ Constructors ..........................................................
 
     // ~Public Methods ........................................................
 
+    /**
+     * runs before test method
+     */
     public void setUp()
     {
         i = new Influencer("UserName", "Channelname", "Serbia", "Ibogaine");
@@ -44,9 +47,9 @@ public class MonthExceptionTest
         {
             thrown = e;
         }
-        
+
         assertNotNull(thrown);
-        
+
         assertTrue(thrown instanceof MonthException);
 
     }

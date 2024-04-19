@@ -49,6 +49,7 @@ public class Influencer
      * can be calculated.
      * 
      * @param month
+     *            The month's activity to be added.
      */
     public void addMonthActivity(Month month)
     {
@@ -145,28 +146,28 @@ public class Influencer
         {
 
             String curMonth = monthActivity.get(i).getMonth().toUpperCase();
-            if (curMonth.equals("JANUARY") || curMonth.equals("FEBRUARY")|| curMonth.equals("MARCH")){
+            if (curMonth.equals("JANUARY") || curMonth.equals("FEBRUARY")
+                || curMonth.equals("MARCH"))
+            {
 
                 likes += monthActivity.get(i).getLikes();
                 comments += monthActivity.get(i).getComments();
             }
         }
-        
+
         for (int i = 0; i < monthActivity.size(); i++)
         {
 
             String curMonth = monthActivity.get(i).getMonth().toUpperCase();
-            if (curMonth.equals("MARCH")){
+            if (curMonth.equals("MARCH"))
+            {
 
                 followers = monthActivity.get(i).getFollowers();
             }
         }
-        
-        
-        
-        
-        
-        if(followers == 0) {
+
+        if (followers == 0)
+        {
             return -1;
         }
 
@@ -258,15 +259,10 @@ public class Influencer
                 return false;
             }
 
-            if (!this.getPageTopic().equals(casted.getPageTopic()))
-            {
-                return false;
-            }
+            return this.getPageTopic().equals(casted.getPageTopic());
 
             // Note: equals method DOES not check engagement rates (i think
             // doing this is unnecessary? could be wrong)
-
-            return true;
         }
         return false;
     }

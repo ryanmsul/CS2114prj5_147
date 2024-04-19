@@ -51,18 +51,19 @@ public class SinglyLinkedListTest
      */
     public void testInsertionSort()
     {
-        SinglyLinkedList<String> list2 = new SinglyLinkedList<String>();
-        list2.add("B");
-        list2.add("D");
-        list2.add("C");
-        list2.add("A");
-        list2.add("E");
+        SinglyLinkedList<String> insertionSortedList =
+            new SinglyLinkedList<String>();
+        insertionSortedList.add("B");
+        insertionSortedList.add("D");
+        insertionSortedList.add("C");
+        insertionSortedList.add("A");
+        insertionSortedList.add("E");
 
-        assertEquals("{B, D, C, A, E}", list2.toString());
+        assertEquals("{B, D, C, A, E}", insertionSortedList.toString());
 
-        list2.insertionSort(new CompareString());
+        insertionSortedList.insertionSort(new CompareString());
 
-        assertEquals("{A, B, C, D, E}", list2.toString());
+        assertEquals("{A, B, C, D, E}", insertionSortedList.toString());
 
     }
 

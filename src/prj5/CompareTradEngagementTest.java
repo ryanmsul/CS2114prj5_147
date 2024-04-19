@@ -11,16 +11,16 @@ package prj5;
 public class CompareTradEngagementTest
     extends student.TestCase
 {
-    // ~ Fields ................................................................
-
     private Influencer iA;
     private Influencer iB;
     private Influencer iADup;
     private CompareTradEngagement comparer;
 
-    // ~ Constructors ..........................................................
-
-    // ~Public Methods ........................................................
+    // ----------------------------------------------------------
+    /**
+     * Creates some influencers which are used to test the
+     * CompareTradEngagement.
+     */
     public void setUp()
     {
         iA = new Influencer("A name", "A channel", "France", "Frogs");

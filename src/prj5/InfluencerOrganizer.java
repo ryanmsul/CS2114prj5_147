@@ -1,7 +1,5 @@
 package prj5;
 
-import java.util.Collections;
-
 // -------------------------------------------------------------------------
 /**
  * This is a wrapper class that allows easy sorting of our influencers.

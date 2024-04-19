@@ -11,16 +11,16 @@ package prj5;
 public class CompareReachEngagementTest
     extends student.TestCase
 {
-    // ~ Fields ................................................................
-
     private Influencer iA;
     private Influencer iB;
     private Influencer iADup;
     private CompareReachEngagement comparer;
 
-    // ~ Constructors ..........................................................
-
-    // ~Public Methods ........................................................
+    // ----------------------------------------------------------
+    /**
+     * Creates some influencers which are used to test the
+     * CompareReachEngagement.
+     */
     public void setUp()
     {
         iA = new Influencer("A name", "A channel", "France", "Frogs");

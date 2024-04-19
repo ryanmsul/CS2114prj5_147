@@ -11,16 +11,15 @@ package prj5;
 public class CompareChannelNameTest
     extends student.TestCase
 {
-    // ~ Fields ................................................................
-
     private Influencer iA;
     private Influencer iB;
     private Influencer iADup;
     private CompareChannelName comparer;
 
-    // ~ Constructors ..........................................................
-
-    // ~Public Methods ........................................................
+    // ----------------------------------------------------------
+    /**
+     * Creates some influencers which are used to test the CompareChannelName.
+     */
     public void setUp()
     {
         iA = new Influencer("A name", "A channel", "France", "Frogs");

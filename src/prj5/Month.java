@@ -11,7 +11,7 @@ package prj5;
 public class Month 
 {
     // ~ Fields ................................................................
-    private String month;
+    private String monthString;
     private int likes;
     private int posts;
     private int followers;
@@ -44,7 +44,7 @@ public class Month
         int comments,
         int views)
     {
-        this.month = month;
+        this.monthString = month;
         this.likes = likes;
         this.posts = posts;
         this.followers = followers;
@@ -61,7 +61,7 @@ public class Month
      */
     public String getMonth()
     {
-        return month;
+        return monthString;
     }
 
 
@@ -145,7 +145,7 @@ public class Month
         }
         if (this.getClass().equals(obj.getClass()))
         {
-            if (month.equals(((Month)obj).getMonth())
+            if (monthString.equals(((Month)obj).getMonth())
                 && likes == ((Month)obj).getLikes()
                 && posts == ((Month)obj).getPosts()
                 && followers == ((Month)obj).getFollowers()

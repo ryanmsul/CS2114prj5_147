@@ -12,16 +12,12 @@ public class CompareStringTest
     extends student.TestCase
 {
 
-    // ~ Fields ................................................................
+    private CompareString comparer;
+
+    // ----------------------------------------------------------
     /**
-     * comparer object for testing
+     * Creates a comparer which is tested in the testCompare class.
      */
-    CompareString comparer;
-
-    // ~ Constructors ..........................................................
-
-    // ~Public Methods ........................................................
-
     public void setUp()
     {
         comparer = new CompareString();

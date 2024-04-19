@@ -46,13 +46,14 @@ public class InputFileReader
      * @param postsFile
      *            reads a file of posts and puts them in a linkedlist
      * @return a SinglyLinkedList of month objects
-     * @throws MonthException 
-     *              throws when the month passed is not a valid month
-     * @throws FileNotFoundException 
-     *              if the file is not a valid file
+     * @throws MonthException
+     *             throws when the month passed is not a valid month
+     * @throws FileNotFoundException
+     *             if the file is not a valid file
      */
-    public SinglyLinkedList<Influencer> readAllPosts(String postsFile) 
-        throws MonthException, FileNotFoundException
+    public SinglyLinkedList<Influencer> readAllPosts(String postsFile)
+        throws MonthException,
+        FileNotFoundException
     {
         SinglyLinkedList<Influencer> parsedList =
             new SinglyLinkedList<Influencer>();
@@ -60,8 +61,8 @@ public class InputFileReader
         @SuppressWarnings("resource")
         Scanner inStream = IOHelper.createScanner(postsFile);
         inStream.nextLine();// skip header
-        while (inStream.hasNextLine()) {
-
+        while (inStream.hasNextLine())
+        {
 
             String line = inStream.nextLine().replaceAll(" ", "");
             String[] values = line.split(",");
@@ -76,19 +77,17 @@ public class InputFileReader
             int comments = toInt(values[8]);
             int views = toInt(values[9]);
 
+            /*
+             * if (!isAValidMonth(month)) { throw new MonthException(
+             * "month given is not a valid month of " + "the week"); }
+             */
 
-
-            if (!isAValidMonth(month))
-            {
-                throw new MonthException(
-                    "month given is not a valid month of " + "the week");
-            }
-            
             Influencer newInfluencer =
                 new Influencer(username, channel, country, mainTopic);
-            
-            if(!parsedList.contains(newInfluencer)) {
-                
+
+            if (!parsedList.contains(newInfluencer))
+            {
+
                 newInfluencer.addMonthActivity(
                     readSinglePosts(
                         month,
@@ -101,9 +100,10 @@ public class InputFileReader
                 parsedList.add(newInfluencer);
 
             }
-            else {
+            else
+            {
                 int influencerIndex = parsedList.lastIndexOf(newInfluencer);
-                
+
                 parsedList.get(influencerIndex).addMonthActivity(
                     readSinglePosts(
                         month,
@@ -113,27 +113,28 @@ public class InputFileReader
                         comments,
                         views));
             }
-           
 
         }
         inStream.close();
         return parsedList;
     }
 
+
     /**
-     *  help convert the string data to an integer 
-     *  
-     *  @return the number of the string
-     *  
-     *  @param num
-     *          the string / number being passed in
+     * help convert the string data to an integer
+     * 
+     * @return the number of the string
+     * @param num
+     *            the string / number being passed in
      */
     private int toInt(String num)
     {
-        try{
+        try
+        {
             return Integer.parseInt(num);
         }
-        catch(Exception e){
+        catch (Exception e)
+        {
             return 0;
         }
     }
@@ -151,39 +152,27 @@ public class InputFileReader
         int comments,
         int views)
     {
-        Month newMonth =
-            new Month(month, likes, posts, followers, comments, views);
+        Month newMonth = null;
+        try
+        {
+            newMonth =
+                new Month(month, likes, posts, followers, comments, views);
+        }
+        catch (MonthException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         return newMonth;
     }
 
 
-    /**
-     * checks to see if the month is a valid month of the year
-     * 
-     * @param checkedMonth
-     *            the month being checked
-     * @return whether the month is a valid month or not
-     */
-    private boolean isAValidMonth(String checkedMonth)
-    {
-        String uppercaseMonth = checkedMonth.toUpperCase();
-        if (uppercaseMonth.equals("JANUARY") || uppercaseMonth.equals("FEBRUARY")
-            || uppercaseMonth.equals("MARCH") || uppercaseMonth.equals("APRIL")
-            || uppercaseMonth.equals("MAY") || uppercaseMonth.equals("JUNE")
-            || uppercaseMonth.equals("JULY") || uppercaseMonth.equals("AUGUST")
-            || uppercaseMonth.equals("SEPTEMBER") || uppercaseMonth.equals("OCTOBER")
-            || uppercaseMonth.equals("NOVEMBER") || uppercaseMonth.equals("DECEMBER"))
-        {
-            return true;
-        }
-        return false;
-    }
-    
     // ----------------------------------------------------------
     /**
      * @return The input list
      */
-    public SinglyLinkedList<Influencer> getInput(){
+    public SinglyLinkedList<Influencer> getInput()
+    {
         return input;
     }
 }

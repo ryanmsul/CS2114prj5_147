@@ -20,8 +20,11 @@ public class CompareReachEngagementTest
     /**
      * Creates some influencers which are used to test the
      * CompareReachEngagement.
+     * 
+     * @throws MonthException
      */
     public void setUp()
+        throws MonthException
     {
         iA = new Influencer("A name", "A channel", "France", "Frogs");
 

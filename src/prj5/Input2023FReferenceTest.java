@@ -33,8 +33,8 @@ public class Input2023FReferenceTest
      * Test the program with data the students haven't seen Gathers the output
      * from StdOut and compares it to the expect output (stored in
      * InfluencerOutput_2.txt)
-     * @throws java.io.IOException 
      * 
+     * @throws java.io.IOException
      * @throws MonthException
      * @throws ParseException
      */
@@ -79,8 +79,8 @@ public class Input2023FReferenceTest
      * Test the program with data the students haven't seen Gathers the output
      * from StdOut and compares it to the expect output (stored in
      * InfluencerOutput_2.txt)
-     * @throws java.io.IOException 
      * 
+     * @throws java.io.IOException
      * @throws MonthException
      * @throws ParseException
      */
@@ -169,8 +169,8 @@ public class Input2023FReferenceTest
 
     /**
      * Test the program with the data provided for students to use
-     * @throws java.io.IOException 
      * 
+     * @throws java.io.IOException
      * @throws MonthException
      * @throws ParseException
      */
@@ -289,7 +289,8 @@ public class Input2023FReferenceTest
     // ----------------------------------------------------------
     /**
      * Second version of testing main method
-     * @throws java.io.IOException 
+     * 
+     * @throws java.io.IOException
      * @throws ParseException
      * @throws MonthException
      */

@@ -4,8 +4,8 @@ import java.util.Comparator;
 
 // -------------------------------------------------------------------------
 /**
- * This a helper class that allows the SSL to compare the string output of 
- * two comparator objects.
+ * This a helper class that allows the SSL to compare the string output of two
+ * comparator objects.
  * 
  * @author jesse
  * @version Apr 16, 2024
@@ -19,7 +19,5 @@ public class CompareString
     {
         return o1.compareTo(o2);
     }
-    
-    
-    
+
 }

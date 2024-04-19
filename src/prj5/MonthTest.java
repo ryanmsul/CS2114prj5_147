@@ -19,6 +19,7 @@ public class MonthTest
      * Sets up initial conditions
      */
     public void setUp()
+        throws MonthException
     {
         month = new Month("January", 4, 5, 10, 20, 50);
     }
@@ -29,6 +30,7 @@ public class MonthTest
      * scenarios.
      */
     public void testEquals()
+        throws MonthException
     {
         // Name, Likes, Posts, Followers, Comments, Views
         Month equivMonth = new Month("January", 4, 5, 10, 20, 50);

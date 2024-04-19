@@ -18,11 +18,13 @@ public class InfluencerTest
     private Month month;
     private Month monthZero;
 
-    // ~ Constructors ..........................................................
-
-    // ~Public Methods ........................................................
-
+    // ----------------------------------------------------------
+    /**
+     * Creates some influencers which are used to test the methods of the
+     * Influencer class.
+     */
     public void setUp()
+        throws MonthException
     {
         iA = new Influencer("A name", "A channel", "France", "Frogs");
 
@@ -135,8 +137,11 @@ public class InfluencerTest
     /**
      * test the equals method to see if two influencer objects are equal to each
      * other
+     * 
+     * @throws MonthException
      */
     public void testEquals()
+        throws MonthException
     {
         assertTrue(iA.equals(iA));
 

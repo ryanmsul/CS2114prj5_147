@@ -2,13 +2,13 @@ package prj5;
 
 // -------------------------------------------------------------------------
 /**
- * Creates a "Month" class that tracks all the data of an influencer over 
- * a given month. (Likes, posts, followers, comments, and views).
+ * Creates a "Month" class that tracks all the data of an influencer over a
+ * given month. (Likes, posts, followers, comments, and views).
  * 
  * @author Appiah Morgan(ajm7243)
  * @version Apr 16, 2024
  */
-public class Month 
+public class Month
 {
     // ~ Fields ................................................................
     private String monthString;
@@ -23,7 +23,7 @@ public class Month
     /**
      * Create a new Month object.
      * 
-     * @param month
+     * @param monthString
      *            input month of the year.
      * @param likes
      *            the amount of likes recieved in that month.
@@ -35,16 +35,23 @@ public class Month
      *            the number of comment received in a month.
      * @param views
      *            the number of views for a month.
+     * @throws MonthException
      */
     public Month(
-        String month,
+        String monthString,
         int likes,
         int posts,
         int followers,
         int comments,
         int views)
+        throws MonthException
     {
-        this.monthString = month;
+        if (!isAValidMonth(monthString))
+        {
+            throw new MonthException("month given is not a valid month name.");
+        }
+
+        this.monthString = monthString;
         this.likes = likes;
         this.posts = posts;
         this.followers = followers;
@@ -122,6 +129,32 @@ public class Month
     public int getViews()
     {
         return views;
+    }
+
+
+    /**
+     * checks to see if the month is a valid month of the year
+     * 
+     * @param monthString
+     *            the month being checked
+     * @return whether the month is a valid month or not
+     */
+    public static boolean isAValidMonth(String monthString)
+    {
+        String uppercaseMonth = monthString.toUpperCase();
+        if (uppercaseMonth.equals("JANUARY")
+            || uppercaseMonth.equals("FEBRUARY")
+            || uppercaseMonth.equals("MARCH") || uppercaseMonth.equals("APRIL")
+            || uppercaseMonth.equals("MAY") || uppercaseMonth.equals("JUNE")
+            || uppercaseMonth.equals("JULY") || uppercaseMonth.equals("AUGUST")
+            || uppercaseMonth.equals("SEPTEMBER")
+            || uppercaseMonth.equals("OCTOBER")
+            || uppercaseMonth.equals("NOVEMBER")
+            || uppercaseMonth.equals("DECEMBER"))
+        {
+            return true;
+        }
+        return false;
     }
 
 

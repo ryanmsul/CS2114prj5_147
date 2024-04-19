@@ -22,6 +22,7 @@ public class CompareTradEngagementTest
      * CompareTradEngagement.
      */
     public void setUp()
+        throws MonthException
     {
         iA = new Influencer("A name", "A channel", "France", "Frogs");
 

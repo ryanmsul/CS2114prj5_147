@@ -20,12 +20,10 @@ public class ProjectRunner
      * 
      * @param args
      * @throws IOException
-     * @throws ParseException
      * @throws MonthException
      */
     public static void main(String[] args)
         throws IOException,
-        ParseException,
         MonthException
     {
 

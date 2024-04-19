@@ -4,8 +4,8 @@ import java.util.Comparator;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * This a helper class that allows the SSL to compare the string output of 
+ * two comparator objects.
  * 
  * @author jesse
  * @version Apr 16, 2024

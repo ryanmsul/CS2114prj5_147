@@ -78,7 +78,6 @@ public class InputFileReader
             int views = toInt(values[9]);
 
 
-            // TODO : Populate the Classes created to store the data
 
             if (!isAValidMonth(month))
             {

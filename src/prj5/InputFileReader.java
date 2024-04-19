@@ -1,8 +1,6 @@
 package prj5;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.text.ParseException;
+import java.io.*;
 import java.util.Scanner;
 import student.IOHelper;
 
@@ -25,7 +23,7 @@ public class InputFileReader
      * 
      * @param fileName
      *            the file that will be read through the constructor
-     * @throws ParseException
+     * @throws IOException
      *             if an error has been reached while parsing the input file.
      * @throws FileNotFoundException
      *             if the input file is inaccessible or does not exist.
@@ -33,7 +31,7 @@ public class InputFileReader
      *             if the month is not a valid month of the year
      */
     public InputFileReader(String fileName)
-        throws ParseException,
+        throws IOException,
         FileNotFoundException,
         MonthException
     {

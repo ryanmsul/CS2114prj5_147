@@ -28,6 +28,7 @@ public class MonthTest
     /**
      * Tests that the equals method returns the expected output in all the
      * scenarios.
+     * @throws MonthException 
      */
     public void testEquals()
         throws MonthException

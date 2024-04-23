@@ -26,7 +26,7 @@ public class ProjectRunner
         throws IOException
     {
 
-        VisualizerWindow vWIndow = new VisualizerWindow();
+        
         // Changes input file based on passed arguments
         InputFileReader filer = null;
 
@@ -69,15 +69,15 @@ public class ProjectRunner
             }
         }
 
-        final boolean showConsole = true;
+        final boolean showConsole = false;
         final boolean showGUI = !showConsole;
+
+        SinglyLinkedList<Influencer> input = filer.getInput();
+        input.insertionSort(new CompareChannelName());
 
         if (showConsole)
         {
-            SinglyLinkedList<Influencer> input = filer.getInput();
-
-            input.insertionSort(new CompareChannelName());
-
+            // Outputs the expected output for console.
             for (int i = input.size() - 1; i >= 0; i--)
             {
                 System.out.println(input.get(i).getChannelName());
@@ -119,6 +119,8 @@ public class ProjectRunner
         }
         if (showGUI)
         {
+            VisualizerWindow vWindow = new VisualizerWindow(input);
+            
             /*
              * TODO: For final Submission - Should have the GUI display for the
              * input data

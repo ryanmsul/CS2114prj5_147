@@ -15,6 +15,7 @@ import java.text.DecimalFormat;
 public class VisualizerWindow
 {
     private Window window;
+    private SinglyLinkedList<Influencer> input;
 
     private Button sortChanelNameButton;
     private Button sortEngagementRateButton;
@@ -31,20 +32,19 @@ public class VisualizerWindow
     // Strings that hold values for top left text display,
     // updated when new buttons are clicked
     private String period = "First Quarter (Jan-March)"; // Initial values
-    private String engagementType = "Traditional Engagement Rate" ;
+    private String engagementType = "Traditional Engagement Rate";
     private String sortType = "Sorting by Channel Name";
 
     // TODO: Figure out these numbers, current ones are placeholders.
     private static final int START_X = 0;
     private static final int START_Y = 0;
     private static final int BAR_WIDTH = 0;
-    
-    
-    //These vars are good
+
+    // These vars are good
     private static final int TEXT_X = 20;
     private static final int TEXT_Y = 20;
-    
-  
+
+    private TextShape[] textShapes;
 
     private Shape[] tradEngagementBars;
     private Shape[] reachEngagementBars;
@@ -55,23 +55,24 @@ public class VisualizerWindow
     /**
      * TODO: Add summary
      */
-    public VisualizerWindow()
+    public VisualizerWindow(SinglyLinkedList<Influencer> input)
     {
         // create window
         window = new Window("Social Media Visualizer");
+        this.input = input;
 
         // add buttons
         tradEngagementButton = new Button("Traditional Engagement Rate");
         window.addButton(tradEngagementButton, WindowSide.WEST);
-        tradEngagementButton.onClick(this, "clickedSortTradEngagement");
+        tradEngagementButton.onClick(this, "clickedSortTradEngagementRate");
 
         reachEngagementButton = new Button("Reach Engagement Rate");
         window.addButton(reachEngagementButton, WindowSide.WEST);
-        reachEngagementButton.onClick(this, "clickedSortReachEngagement");
+        reachEngagementButton.onClick(this, "clickedSortReachEngagementRate");
 
         sortChanelNameButton = new Button("Sort by Channel Name");
         window.addButton(sortChanelNameButton, WindowSide.NORTH);
-        sortChanelNameButton.onClick(this, "clickedSortChannelName");
+        sortChanelNameButton.onClick(this, "clickedSortByChannelName");
 
         sortEngagementRateButton = new Button("Sort by Engagement Rate");
         window.addButton(sortEngagementRateButton, WindowSide.NORTH);
@@ -97,8 +98,10 @@ public class VisualizerWindow
         window.addButton(firstQuarterButton, WindowSide.SOUTH);
         firstQuarterButton.onClick(this, "clickedQuarterButton");
 
+        textShapes = new TextShape[3];
+
         updateText();
-        
+
         return;
     }
 
@@ -109,21 +112,38 @@ public class VisualizerWindow
      */
     public void updateText()
     {
-        TextShape periodText = addTextShape(period, TEXT_X, TEXT_Y);
-        TextShape engagementTypeText = addTextShape(engagementType, TEXT_X, TEXT_Y+15);
-        TextShape sortTypeText = addTextShape(sortType, TEXT_X, TEXT_Y+30);
+        // The textShapes array will have the periodText, engageTypeText, and
+        // sortType text in the indexes 0,1,2.
+        if (textShapes[0] == null)
+        {
+            TextShape periodText = addTextShape(period, TEXT_X, TEXT_Y, 0);
+            TextShape engagementTypeText =
+                addTextShape(engagementType, TEXT_X, TEXT_Y + 15, 1);
+            TextShape sortTypeText =
+                addTextShape(sortType, TEXT_X, TEXT_Y + 30, 2);
+        }
+        else
+        {
+            textShapes[0].setText(period);
+            textShapes[1].setText(engagementType);
+            textShapes[2].setText(sortType);
+        }
     }
-    
+
+
     /**
-     * Helper method to add a TextShape to the window 
+     * Helper method to add a TextShape to the window
      */
-    private TextShape addTextShape(String message, int x, int y)
+    private TextShape addTextShape(String message, int x, int y, int shapeIndex)
     {
         if (message != null)
         {
             TextShape s = new TextShape(x, y, message, Color.black);
             s.setBackgroundColor(Color.white);
             window.addShape(s);
+
+            textShapes[shapeIndex] = s;
+
             return s;
         }
         return null;
@@ -166,7 +186,11 @@ public class VisualizerWindow
      */
     public void clickedSortByChannelName(Button button)
     {
-        // TODO: Implement this method.
+        if (!sortType.equals("Sorting by Channel Name"))
+        {
+            sortType = "Sorting by Channel Name";
+            updateText();
+        }
     }
 
 
@@ -176,7 +200,11 @@ public class VisualizerWindow
      */
     public void clickedSortByEngagementRate(Button button)
     {
-        // TODO: Implement this method.
+        if (!sortType.equals("Sorting by Engagement Rate"))
+        {
+            sortType = "Sorting by Engagement Rate";
+            updateText();
+        }
     }
 
 

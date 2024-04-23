@@ -1,6 +1,7 @@
 package prj5;
 
 import cs2.*;
+import java.awt.Color;
 import java.text.DecimalFormat;
 
 // -------------------------------------------------------------------------
@@ -27,17 +28,23 @@ public class VisualizerWindow
     private Button marButton;
     private Button firstQuarterButton;
 
+    // Strings that hold values for top left text display,
+    // updated when new buttons are clicked
+    private String period = "First Quarter (Jan-March)"; // Initial values
+    private String engagementType = "Traditional Engagement Rate" ;
+    private String sortType = "Sorting by Channel Name";
+
     // TODO: Figure out these numbers, current ones are placeholders.
     private static final int START_X = 0;
     private static final int START_Y = 0;
     private static final int BAR_WIDTH = 0;
-    private static final int SORTING_TYPE_X = 0;
-    private static final int SORTING_TYPE_Y = 0;
-    // TODO: Not sure if these are changing or not.
-    private int RATE_X = 0;
-    private int RATE_Y = 0;
-    private int MONTH_X = 0;
-    private int MONTH_Y = 0;
+    
+    
+    //These vars are good
+    private static final int TEXT_X = 20;
+    private static final int TEXT_Y = 20;
+    
+  
 
     private Shape[] tradEngagementBars;
     private Shape[] reachEngagementBars;
@@ -50,51 +57,47 @@ public class VisualizerWindow
      */
     public VisualizerWindow()
     {
-        //create window
+        // create window
         window = new Window("Social Media Visualizer");
-        
-        //add buttons
+
+        // add buttons
         tradEngagementButton = new Button("Traditional Engagement Rate");
         window.addButton(tradEngagementButton, WindowSide.WEST);
         tradEngagementButton.onClick(this, "clickedSortTradEngagement");
-        
-        
+
         reachEngagementButton = new Button("Reach Engagement Rate");
         window.addButton(reachEngagementButton, WindowSide.WEST);
         reachEngagementButton.onClick(this, "clickedSortReachEngagement");
-        
-        
+
         sortChanelNameButton = new Button("Sort by Channel Name");
         window.addButton(sortChanelNameButton, WindowSide.NORTH);
         sortChanelNameButton.onClick(this, "clickedSortChannelName");
-        
+
         sortEngagementRateButton = new Button("Sort by Engagement Rate");
         window.addButton(sortEngagementRateButton, WindowSide.NORTH);
         sortEngagementRateButton.onClick(this, "clickedSortByEngagementRate");
-        
+
         quitButton = new Button("Quit");
         window.addButton(quitButton, WindowSide.NORTH);
         quitButton.onClick(this, "clickedQuit");
-        
+
         janButton = new Button("January");
         window.addButton(janButton, WindowSide.SOUTH);
         janButton.onClick(this, "clickedJanuary");
-        
+
         febButton = new Button("February");
         window.addButton(febButton, WindowSide.SOUTH);
         febButton.onClick(this, "clickedFebruary");
-        
+
         marButton = new Button("March");
         window.addButton(marButton, WindowSide.SOUTH);
         marButton.onClick(this, "clickedMarch");
-        
-        
-        marButton = new Button("First Quarter (Jan-March)");
-        window.addButton(marButton, WindowSide.SOUTH);
-        marButton.onClick(this, "clickedQuarterButton");
-        
-        
-        
+
+        firstQuarterButton = new Button("First Quarter (Jan-March)");
+        window.addButton(firstQuarterButton, WindowSide.SOUTH);
+        firstQuarterButton.onClick(this, "clickedQuarterButton");
+
+        updateText();
         
         return;
     }
@@ -106,7 +109,24 @@ public class VisualizerWindow
      */
     public void updateText()
     {
-        // TODO: Implement this method.
+        TextShape periodText = addTextShape(period, TEXT_X, TEXT_Y);
+        TextShape engagementTypeText = addTextShape(engagementType, TEXT_X, TEXT_Y+15);
+        TextShape sortTypeText = addTextShape(sortType, TEXT_X, TEXT_Y+30);
+    }
+    
+    /**
+     * Helper method to add a TextShape to the window 
+     */
+    private TextShape addTextShape(String message, int x, int y)
+    {
+        if (message != null)
+        {
+            TextShape s = new TextShape(x, y, message, Color.black);
+            s.setBackgroundColor(Color.white);
+            window.addShape(s);
+            return s;
+        }
+        return null;
     }
 
 
@@ -129,15 +149,16 @@ public class VisualizerWindow
         // TODO: Implement this method.
     }
 
-    
- // ----------------------------------------------------------
+
+    // ----------------------------------------------------------
     /**
      * TODO: Add summary
      */
     public void clickedQuit(Button button)
     {
-        // TODO: Implement this method.
+        System.exit(0);
     }
+
 
     // ----------------------------------------------------------
     /**
@@ -187,8 +208,9 @@ public class VisualizerWindow
     {
         // TODO: Implement this method.
     }
-    
- // ----------------------------------------------------------
+
+
+    // ----------------------------------------------------------
     /**
      * TODO: Add summary
      */
@@ -196,8 +218,9 @@ public class VisualizerWindow
     {
         // TODO: Implement this method.
     }
-    
- // ----------------------------------------------------------
+
+
+    // ----------------------------------------------------------
     /**
      * TODO: Add summary
      */

@@ -22,7 +22,9 @@ public class VisualizerWindow
     private Button tradEngagementButton;
     private Button reachEngagementButton;
 
-    private Button[] monthButtons;
+    private Button janButton;
+    private Button febButton;
+    private Button marButton;
     private Button firstQuarterButton;
 
     // TODO: Figure out these numbers, current ones are placeholders.
@@ -48,7 +50,47 @@ public class VisualizerWindow
      */
     public VisualizerWindow()
     {
-        // TODO: Implement this constructor.
+        //create window
+        window = new Window("Social Media Visualizer");
+        
+        //add buttons
+        tradEngagementButton = new Button("Traditional Engagement Rate");
+        window.addButton(tradEngagementButton, WindowSide.WEST);
+        tradEngagementButton.onClick(this, "clickedSortTradEngagement");
+        
+        
+        reachEngagementButton = new Button("Reach Engagement Rate");
+        window.addButton(reachEngagementButton, WindowSide.WEST);
+        reachEngagementButton.onClick(this, "clickedSortReachEngagement");
+        
+        
+        sortChanelNameButton = new Button("Sort by Channel Name");
+        window.addButton(sortChanelNameButton, WindowSide.NORTH);
+        sortChanelNameButton.onClick(this, "clickedSortChannelName");
+        
+        sortEngagementRateButton = new Button("Sort by Engagement Rate");
+        window.addButton(sortEngagementRateButton, WindowSide.NORTH);
+        sortEngagementRateButton.onClick(this, "clickedSortByEngagementRate");
+        
+        quitButton = new Button("Quit");
+        window.addButton(quitButton, WindowSide.NORTH);
+        quitButton.onClick(this, "clickedQuit");
+        
+        janButton = new Button("January");
+        window.addButton(janButton, WindowSide.SOUTH);
+        janButton.onClick(this, "clickedJanuary");
+        
+        febButton = new Button("February");
+        window.addButton(febButton, WindowSide.SOUTH);
+        febButton.onClick(this, "clickedFebruary");
+        
+        marButton = new Button("March");
+        window.addButton(marButton, WindowSide.SOUTH);
+        marButton.onClick(this, "clickedMarch");
+        
+        
+        
+        
         return;
     }
 
@@ -82,6 +124,15 @@ public class VisualizerWindow
         // TODO: Implement this method.
     }
 
+    
+ // ----------------------------------------------------------
+    /**
+     * TODO: Add summary
+     */
+    public void clickedQuit(Button button)
+    {
+        // TODO: Implement this method.
+    }
 
     // ----------------------------------------------------------
     /**
@@ -127,7 +178,25 @@ public class VisualizerWindow
     /**
      * TODO: Add summary
      */
-    public void clickedMonth(Button button)
+    public void clickedJanuary(Button button)
+    {
+        // TODO: Implement this method.
+    }
+    
+ // ----------------------------------------------------------
+    /**
+     * TODO: Add summary
+     */
+    public void clickedFebruary(Button button)
+    {
+        // TODO: Implement this method.
+    }
+    
+ // ----------------------------------------------------------
+    /**
+     * TODO: Add summary
+     */
+    public void clickedMarch(Button button)
     {
         // TODO: Implement this method.
     }

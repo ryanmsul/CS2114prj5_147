@@ -26,6 +26,7 @@ public class ProjectRunner
         throws IOException
     {
 
+        VisualizerWindow vWIndow = new VisualizerWindow();
         // Changes input file based on passed arguments
         InputFileReader filer = null;
 

@@ -89,6 +89,11 @@ public class VisualizerWindow
         marButton.onClick(this, "clickedMarch");
         
         
+        marButton = new Button("First Quarter (Jan-March)");
+        window.addButton(marButton, WindowSide.SOUTH);
+        marButton.onClick(this, "clickedQuarterButton");
+        
+        
         
         
         return;

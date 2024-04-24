@@ -235,6 +235,23 @@ public class VisualizerWindow
     public void clickedJanuary(Button button)
     {
         // TODO: Implement this method.
+        if (engagementType.equals("Traditional Engagement Rate"))
+        {
+            
+            if (input.get(0).getTraditionalEngagementRate() != -1)
+            {
+                this.drawBars();
+            }
+        }
+        else 
+        {
+            if (input.get(0).getReachEngagementRate() != -1)
+            {
+                this.drawBars();
+            }
+        }
+        period = "January";
+        updateText();
     }
 
 

@@ -543,6 +543,37 @@ public class SinglyLinkedList<T>
     }
 
 
+    // ----------------------------------------------------------
+    /**
+     * Overloaded method to allow sorting by Months
+     * 
+     * @param comparer
+     *            The comparator used for the sort
+     * @param month
+     *            The month period to be sorted by.
+     */
+    public
+        void
+        insertionSort(CompareEngagement<? super T> comparer, Month month)
+    {
+        if (size > 1)
+        {
+            Node<T> unsorted = head.next();
+            Node<T> sorted = head;
+            sorted.setNext(null);
+
+            while (unsorted != null)
+            {
+                Node<T> nodeToInsert = unsorted;
+                unsorted = unsorted.next();
+                insertInOrder(nodeToInsert, comparer, month);
+            }
+
+        }
+
+    }
+
+
     private
         void
         insertInOrder(Node<T> nodeToInsert, Comparator<? super T> comparer)
@@ -554,6 +585,38 @@ public class SinglyLinkedList<T>
         // find insertion location
         while ((current != null)
             && (comparer.compare(nodeData, current.getData())) > 0)
+        {
+            prev = current;
+            current = current.next();
+
+        }
+
+        // complete insertion
+        if (prev != null)
+        {
+            prev.setNext(nodeToInsert);
+            nodeToInsert.setNext(current);
+        }
+        else
+        {
+            nodeToInsert.setNext(head);
+            head = nodeToInsert;
+        }
+    }
+
+
+    private void insertInOrder(
+        Node<T> nodeToInsert,
+        CompareEngagement<? super T> comparer,
+        Month month)
+    {
+        T nodeData = nodeToInsert.getData();
+        Node<T> current = head;
+        Node<T> prev = null;
+
+        // find insertion location
+        while ((current != null)
+            && (comparer.compare(nodeData, current.getData(), month)) > 0)
         {
             prev = current;
             current = current.next();

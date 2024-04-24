@@ -11,7 +11,7 @@ import java.util.Comparator;
  * @version Apr 16, 2024
  */
 public class CompareTradEngagement
-    implements Comparator<Influencer>
+    implements CompareEngagement<Influencer>
 {
     @Override
     public int compare(Influencer o1, Influencer o2)
@@ -23,6 +23,23 @@ public class CompareTradEngagement
         }
         else if (o1.getTraditionalEngagementRate() < o2
             .getTraditionalEngagementRate())
+        {
+            return -1;
+        }
+        return 0;
+    }
+
+
+    @Override
+    public int compare(Influencer o1, Influencer o2, Month month)
+    {
+        if (o1.getTraditionalEngagementRate(month) > o2
+            .getTraditionalEngagementRate(month))
+        {
+            return 1;
+        }
+        else if (o1.getTraditionalEngagementRate(month) < o2
+            .getTraditionalEngagementRate(month))
         {
             return -1;
         }

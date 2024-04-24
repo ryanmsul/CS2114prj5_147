@@ -11,7 +11,7 @@ import java.util.Comparator;
  * @version Apr 16, 2024
  */
 public class CompareReachEngagement
-    implements Comparator<Influencer>
+    implements CompareEngagement<Influencer>
 {
 
     @Override
@@ -29,4 +29,19 @@ public class CompareReachEngagement
 
     }
 
+
+    @Override
+    public int compare(Influencer o1, Influencer o2, Month month)
+    {
+        if (o1.getReachEngagementRate(month) > o2.getReachEngagementRate(month))
+        {
+            return 1;
+        }
+        else if (o1.getReachEngagementRate(month) < o2
+            .getReachEngagementRate(month))
+        {
+            return -1;
+        }
+        return 0;
+    }
 }

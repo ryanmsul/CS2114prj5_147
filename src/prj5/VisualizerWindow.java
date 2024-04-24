@@ -36,9 +36,9 @@ public class VisualizerWindow
     private String sortType = "Sorting by Channel Name";
 
     // TODO: Figure out these numbers, current ones are placeholders.
-    private static final int START_X = 0;
-    private static final int START_Y = 0;
-    private static final int BAR_WIDTH = 0;
+    private static final int START_X = 50;
+    private static final int START_Y = 150;
+    private static final int BAR_WIDTH = 20;
 
     // These vars are good
     private static final int TEXT_X = 20;
@@ -101,6 +101,7 @@ public class VisualizerWindow
         textShapes = new TextShape[3];
 
         updateText();
+        drawBars();
 
         return;
     }
@@ -156,7 +157,25 @@ public class VisualizerWindow
      */
     public void drawBars()
     {
-        // TODO: Implement this method.
+        int shapeX = START_X;
+        int shapeY = START_Y;
+        int height = 0;
+        int max = 0;
+        if (sortType == "Sorting by Channel Name") 
+        {
+            max = input.get(1).getChannelName().length();
+            int heightMax = (input.get(1).getChannelName().length() / max) * 75;
+            for (int i = 0; i < input.size(); i++) 
+            {
+                shapeY = START_Y; 
+                height = (input.get(i).getChannelName().length() / max) * 75;
+                shapeY += heightMax - height;
+                Shape newShape = new Shape(shapeX, shapeY, BAR_WIDTH, height, 
+                    Color.red);
+                window.addShape(newShape);
+                shapeX += 30;
+            }
+        }
     }
 
 
@@ -188,7 +207,7 @@ public class VisualizerWindow
             updateText();
 
             sortInfluencers();
-
+            drawBars();
         }
     }
 

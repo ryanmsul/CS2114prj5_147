@@ -31,13 +31,13 @@ public class VisualizerWindow
 
     // Strings that hold values for top left text display,
     // updated when new buttons are clicked
-    private String period = "First Quarter (Jan-March)"; // Initial values
-    private String engagementType = "Traditional Engagement Rate";
-    private String sortType = "Sorting by Channel Name";
+    private String period; // Initial values
+    private String engagementType;
+    private String sortType;
 
     // TODO: Figure out these numbers, current ones are placeholders.
     private static final int START_X = 300;
-    private static final int START_Y = 200;
+    private static final int START_Y = 600;
     private static final int BAR_WIDTH = 20;
 
     // These vars are good
@@ -57,9 +57,14 @@ public class VisualizerWindow
      */
     public VisualizerWindow(SinglyLinkedList<Influencer> input)
     {
+        period = "First Quarter (Jan-March)";
+        engagementType = "Traditional Engagement Rate";
+        sortType = "Sorting by Channel Name";
+        
         // create window
         window = new Window("Social Media Visualizer");
         this.input = input;
+        this.input.insertionSort(new CompareChannelName());
 
         // add buttons
         tradEngagementButton = new Button("Traditional Engagement Rate");
@@ -179,8 +184,8 @@ public class VisualizerWindow
         int shapeY = START_Y;
         int height = 0;
         int max = 0;
-        if (sortType.equals("Sorting by Channel Name"))
-        {
+        if (engagementType.equals("Traditional Engagement Rate")) // sortType should not matter, list is already sorted
+        {                                               // the bars should only depend on engagment rate vals.
             max = input.get(1).getChannelName().length();
             int heightMax = (input.get(1).getChannelName().length() / max) * 75;
             for (int i = 0; i < input.size(); i++)
@@ -198,8 +203,9 @@ public class VisualizerWindow
                 int nameY = shapeY + height + 20;
                 int dataY = shapeY + height + 45;
                 int textX = shapeX;
-                String name = input.get(i).getChannelName();
+                String name = input.get(i).getUsername();
                 Double data;
+                String dataText;
                 if (engagementType.equals("Traditional Engagement Rate")
                     && period.equals("First Quarter (Jan-March)"))
                 {
@@ -224,7 +230,15 @@ public class VisualizerWindow
                 addTextShape(name, textX, nameY);
 
                 //add data
-                addTextShape(formatDecimal(data).toString(), textX, dataY);
+                
+                if(data<0) {
+                    dataText = "N/A";
+                }
+                else {
+                    dataText = data.toString();
+                }
+                
+                addTextShape(dataText, textX, dataY);
                 
                 
                 //move next bar to right
@@ -232,6 +246,8 @@ public class VisualizerWindow
             }
         }
     }
+    
+    
 
 
     // ----------------------------------------------------------

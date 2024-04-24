@@ -113,11 +113,26 @@ public class Influencer
      *            The month to be calculated
      * @return The traditional engagement calculation
      */
-    public double getTraditionalEngagementRate(Month month)
+    public double getTraditionalEngagementRate(String month)
     {
-        double likes = month.getLikes();
-        double followers = month.getFollowers();
-        double comments = month.getComments();
+        double likes = 0;
+        double followers = 0;
+        double comments = 0;
+
+        for (int i = 0; i < monthActivity.size(); i++)
+        {
+
+            String curMonth = monthActivity.get(i).getMonth().toUpperCase();
+            if (curMonth.equals(month.toUpperCase()))
+                
+            {
+
+                followers += monthActivity.get(i).getFollowers();
+                likes += monthActivity.get(i).getLikes();
+                comments += monthActivity.get(i).getComments();
+            }
+        }
+
 
         if (followers == 0)
         {
@@ -184,11 +199,25 @@ public class Influencer
      *            The month to be calculated
      * @return The reach engagement calculation
      */
-    public double getReachEngagementRate(Month month)
+    public double getReachEngagementRate(String month)
     {
-        double likes = month.getLikes();
-        double comments = month.getComments();
-        double views = month.getViews();
+        double likes = 0;
+        double comments = 0;
+        double views = 0;
+
+        for (int i = 0; i < monthActivity.size(); i++)
+        {
+
+            String curMonth = monthActivity.get(i).getMonth().toUpperCase();
+            if (curMonth.equals(month.toUpperCase()))
+                
+            {
+
+                likes += monthActivity.get(i).getLikes();
+                views += monthActivity.get(i).getViews();
+                comments += monthActivity.get(i).getComments();
+            }
+        }
 
         if (views == 0)
         {

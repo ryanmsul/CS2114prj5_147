@@ -30,15 +30,17 @@ public class CompareReachEngagement
     }
 
 
+    
+    // needs testing
     @Override
     public int compare(Influencer o1, Influencer o2, Month month)
     {
-        if (o1.getReachEngagementRate(month) > o2.getReachEngagementRate(month))
+        if (o1.getReachEngagementRate(month.getMonth()) > o2.getReachEngagementRate(month.getMonth()))
         {
             return 1;
         }
-        else if (o1.getReachEngagementRate(month) < o2
-            .getReachEngagementRate(month))
+        else if (o1.getReachEngagementRate(month.getMonth()) < o2
+            .getReachEngagementRate(month.getMonth()))
         {
             return -1;
         }

@@ -29,17 +29,18 @@ public class CompareTradEngagement
         return 0;
     }
 
-
+    
+    //need testing
     @Override
     public int compare(Influencer o1, Influencer o2, Month month)
     {
-        if (o1.getTraditionalEngagementRate(month) > o2
-            .getTraditionalEngagementRate(month))
+        if (o1.getTraditionalEngagementRate(month.getMonth()) > o2
+            .getTraditionalEngagementRate(month.getMonth()))
         {
             return 1;
         }
-        else if (o1.getTraditionalEngagementRate(month) < o2
-            .getTraditionalEngagementRate(month))
+        else if (o1.getTraditionalEngagementRate(month.getMonth()) < o2
+            .getTraditionalEngagementRate(month.getMonth()))
         {
             return -1;
         }

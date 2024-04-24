@@ -36,8 +36,8 @@ public class VisualizerWindow
     private String sortType = "Sorting by Channel Name";
 
     // TODO: Figure out these numbers, current ones are placeholders.
-    private static final int START_X = 50;
-    private static final int START_Y = 150;
+    private static final int START_X = 300;
+    private static final int START_Y = 200;
     private static final int BAR_WIDTH = 20;
 
     // These vars are good
@@ -133,7 +133,8 @@ public class VisualizerWindow
 
 
     /**
-     * Helper method to add a TextShape to the window
+     * Helper method to add a TextShape to the window overloaded to add
+     * textShapes to text shape array
      */
     private TextShape addTextShape(String message, int x, int y, int shapeIndex)
     {
@@ -151,6 +152,23 @@ public class VisualizerWindow
     }
 
 
+    /**
+     * Helper method to add a TextShape to the window
+     */
+    private TextShape addTextShape(String message, int x, int y)
+    {
+        if (message != null)
+        {
+            TextShape s = new TextShape(x, y, message, Color.black);
+            s.setBackgroundColor(Color.white);
+            window.addShape(s);
+
+            return s;
+        }
+        return null;
+    }
+
+
     // ----------------------------------------------------------
     /**
      * TODO: Add summary
@@ -161,19 +179,56 @@ public class VisualizerWindow
         int shapeY = START_Y;
         int height = 0;
         int max = 0;
-        if (sortType == "Sorting by Channel Name") 
+        if (sortType.equals("Sorting by Channel Name"))
         {
             max = input.get(1).getChannelName().length();
             int heightMax = (input.get(1).getChannelName().length() / max) * 75;
-            for (int i = 0; i < input.size(); i++) 
+            for (int i = 0; i < input.size(); i++)
             {
-                shapeY = START_Y; 
+                shapeY = START_Y;
                 height = (input.get(i).getChannelName().length() / max) * 75;
                 shapeY += heightMax - height;
-                Shape newShape = new Shape(shapeX, shapeY, BAR_WIDTH, height, 
-                    Color.red);
+                Shape newShape =
+                    new Shape(shapeX, shapeY, BAR_WIDTH, height, Color.red);
                 window.addShape(newShape);
-                shapeX += 30;
+                
+
+                // draw bar text
+
+                int nameY = shapeY + height + 20;
+                int dataY = shapeY + height + 45;
+                int textX = shapeX;
+                String name = input.get(i).getChannelName();
+                Double data;
+                if (engagementType.equals("Traditional Engagement Rate")
+                    && period.equals("First Quarter (Jan-March)"))
+                {
+                    data = input.get(i).getTraditionalEngagementRate();
+                }
+                else if (engagementType.equals("Traditional Engagement Rate")
+                    && !period.equals("First Quarter (Jan-March)"))
+                {
+                    data = input.get(i).getTraditionalEngagementRate(period);
+                }
+                else if (engagementType.equals("Reach Engagement Rate")
+                    && period.equals("First Quarter (Jan-March)"))
+                {
+                    data = input.get(i).getReachEngagementRate();
+                }
+                else
+                {
+                    data = input.get(i).getReachEngagementRate(period);
+                }
+                
+                // add name
+                addTextShape(name, textX, nameY);
+
+                //add data
+                addTextShape(formatDecimal(data).toString(), textX, dataY);
+                
+                
+                //move next bar to right
+                shapeX += 200;
             }
         }
     }
@@ -183,8 +238,8 @@ public class VisualizerWindow
     /**
      * Closes the Visualization Window.
      * 
-     * @param button references the quitButton object which
-     * handles the function.
+     * @param button
+     *            references the quitButton object which handles the function.
      */
     public void clickedQuit(Button button)
     {
@@ -194,10 +249,11 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * Updates the graph to reflect the data being sorted in order by
-     * the channel name order (A -> B -> C, etc)
+     * Updates the graph to reflect the data being sorted in order by the
+     * channel name order (A -> B -> C, etc)
      * 
-     * @param button The button being referenced
+     * @param button
+     *            The button being referenced
      */
     public void clickedSortByChannelName(Button button)
     {
@@ -214,10 +270,11 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * Updates the graph to reflect the data being sorted in descending order
-     * by the engagement rates.
+     * Updates the graph to reflect the data being sorted in descending order by
+     * the engagement rates.
      * 
-     * @param button The button being referenced
+     * @param button
+     *            The button being referenced
      */
     public void clickedSortByEngagementRate(Button button)
     {
@@ -234,11 +291,12 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * Updates the graph to reflect the data being sorted via the
-     * traditional engagement formula.
+     * Updates the graph to reflect the data being sorted via the traditional
+     * engagement formula.
      * 
-     * @param button The button being referenced that executes the
-     * traditional engagement function
+     * @param button
+     *            The button being referenced that executes the traditional
+     *            engagement function
      */
     public void clickedSortTradEngagementRate(Button button)
     {
@@ -255,11 +313,12 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * Updates the graph to reflect the data being sorted via the
-     * reach engagement formula.
+     * Updates the graph to reflect the data being sorted via the reach
+     * engagement formula.
      * 
-     * @param button The button being referenced that executes the
-     * reach engagement update function.
+     * @param button
+     *            The button being referenced that executes the reach engagement
+     *            update function.
      */
     public void clickedSortReachEngagementRate(Button button)
     {

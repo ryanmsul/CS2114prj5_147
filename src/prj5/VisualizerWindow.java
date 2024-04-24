@@ -172,7 +172,10 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * TODO: Add summary
+     * Closes the window.
+     * 
+     * @param button references the quitButton object which
+     * handles the function.
      */
     public void clickedQuit(Button button)
     {
@@ -274,7 +277,7 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * Updates the period field to reference the month of February and updates
+     * Updates the period field to reference the month of January and updates
      * the graph to display the engagement data of all influencers for the
      * month.
      * 

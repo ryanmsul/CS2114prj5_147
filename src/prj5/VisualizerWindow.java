@@ -274,58 +274,80 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * TODO: Add summary
+     * Updates the period field to reference the month of February and updates
+     * the graph to display the engagement data of all influencers for the
+     * month.
+     * 
+     * @param button
+     *            the button being referenced by the click function.
      */
     public void clickedJanuary(Button button)
     {
-        // TODO: Implement this method.
-        if (engagementType.equals("Traditional Engagement Rate"))
+        if (!period.equals("January"))
         {
-            
-            if (input.get(0).getTraditionalEngagementRate() != -1)
-            {
-                this.drawBars();
-            }
+            period = "January";
+            updateText();
+            this.drawBars();
         }
-        else 
-        {
-            if (input.get(0).getReachEngagementRate() != -1)
-            {
-                this.drawBars();
-            }
-        }
-        period = "January";
-        updateText();
     }
 
 
     // ----------------------------------------------------------
     /**
-     * TODO: Add summary
+     * Updates the period field to reference the month of February and updates
+     * the graph to display the engagement data of all influencers for the
+     * month.
+     * 
+     * @param button
+     *            the button being referenced by the click function.
      */
     public void clickedFebruary(Button button)
     {
-        // TODO: Implement this method.
+        if (!period.equals("February"))
+        {
+            period = "February";
+            updateText();
+            this.drawBars();
+        }
     }
 
 
     // ----------------------------------------------------------
     /**
-     * TODO: Add summary
+     * Updates the period field to reference the month of March and updates the
+     * graph to display the engagement data of all influencers for the month.
+     * 
+     * @param button
+     *            the button being referenced by the click function.
      */
     public void clickedMarch(Button button)
     {
-        // TODO: Implement this method.
+        if (!period.equals("March"))
+        {
+            period = "March";
+            updateText();
+            this.drawBars();
+        }
     }
 
 
     // ----------------------------------------------------------
     /**
-     * TODO: Add summary
+     * Updates the period field to reference the full first quarter of the year
+     * and updates the graph to display the engagement data of all influencers
+     * for that quarter.
+     * 
+     * @param button
+     *            the button being referenced by the click function.
      */
     public void clickedQuarterButton(Button button)
     {
-        // TODO: Implement this method.
+        if (!period.equals("First Quarter (Jan-March)"))
+        {
+            period = "First Quarter (Jan-March)";
+            updateText();
+            this.drawBars();
+        }
     }
 
 

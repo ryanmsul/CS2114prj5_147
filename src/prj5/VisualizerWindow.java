@@ -172,7 +172,7 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * Closes the window.
+     * Closes the Visualization Window.
      * 
      * @param button references the quitButton object which
      * handles the function.
@@ -185,7 +185,10 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * TODO: Add summary
+     * Updates the graph to reflect the data being sorted in order by
+     * the channel name order (A -> B -> C, etc)
+     * 
+     * @param button The button being referenced
      */
     public void clickedSortByChannelName(Button button)
     {
@@ -202,7 +205,10 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * TODO: Add summary
+     * Updates the graph to reflect the data being sorted in descending order
+     * by the engagement rates.
+     * 
+     * @param button The button being referenced
      */
     public void clickedSortByEngagementRate(Button button)
     {
@@ -219,7 +225,11 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * TODO: Add summary
+     * Updates the graph to reflect the data being sorted via the
+     * traditional engagement formula.
+     * 
+     * @param button The button being referenced that executes the
+     * traditional engagement function
      */
     public void clickedSortTradEngagementRate(Button button)
     {
@@ -236,7 +246,11 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * TODO: Add summary
+     * Updates the graph to reflect the data being sorted via the
+     * reach engagement formula.
+     * 
+     * @param button The button being referenced that executes the
+     * reach engagement update function.
      */
     public void clickedSortReachEngagementRate(Button button)
     {

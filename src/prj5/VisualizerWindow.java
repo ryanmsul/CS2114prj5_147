@@ -190,6 +190,9 @@ public class VisualizerWindow
         {
             sortType = "Sorting by Channel Name";
             updateText();
+
+            sortInfluencers();
+
         }
     }
 
@@ -204,6 +207,9 @@ public class VisualizerWindow
         {
             sortType = "Sorting by Engagement Rate";
             updateText();
+
+            sortInfluencers();
+
         }
     }
 
@@ -214,7 +220,14 @@ public class VisualizerWindow
      */
     public void clickedSortTradEngagementRate(Button button)
     {
-        // TODO: Implement this method.
+        if (!engagementType.equals("Traditional Engagement Rate"))
+        {
+            engagementType = "Traditional Engagement Rate";
+            updateText();
+
+            sortInfluencers();
+
+        }
     }
 
 
@@ -224,7 +237,38 @@ public class VisualizerWindow
      */
     public void clickedSortReachEngagementRate(Button button)
     {
-        // TODO: Implement this method.
+        if (!engagementType.equals("Reach Engagement Rate"))
+        {
+            engagementType = "Reach Engagement Rate";
+            updateText();
+
+            sortInfluencers();
+        }
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Helper method that sorts influencers whenever a button that changes the
+     * order is called.
+     */
+    private void sortInfluencers()
+    {
+        if (sortType.equals("Sorting by Channel Name"))
+        {
+            input.insertionSort(new CompareChannelName());
+        }
+        else
+        {
+            if (engagementType.equals("Traditional Engagement Rate"))
+            {
+                input.insertionSort(new CompareTradEngagement());
+            }
+            else
+            {
+                input.insertionSort(new CompareReachEngagement());
+            }
+        }
     }
 
 
@@ -320,16 +364,6 @@ public class VisualizerWindow
      * TODO: Add summary
      */
     public void updateSortingTypeText()
-    {
-        // TODO: Implement this method.
-    }
-
-
-    // ----------------------------------------------------------
-    /**
-     * TODO: Add summary
-     */
-    public void exitVisualizerWindow()
     {
         // TODO: Implement this method.
     }

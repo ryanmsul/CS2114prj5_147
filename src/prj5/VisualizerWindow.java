@@ -154,16 +154,6 @@ public class VisualizerWindow
     /**
      * TODO: Add summary
      */
-    public void updateButtons()
-    {
-        // TODO: Implement this method.
-    }
-
-
-    // ----------------------------------------------------------
-    /**
-     * TODO: Add summary
-     */
     public void drawBars()
     {
         // TODO: Implement this method.
@@ -365,46 +355,6 @@ public class VisualizerWindow
             updateText();
             this.drawBars();
         }
-    }
-
-
-    // ----------------------------------------------------------
-    /**
-     * TODO: Add summary
-     */
-    public void updateMonthText()
-    {
-        // TODO: Implement this method.
-    }
-
-
-    // ----------------------------------------------------------
-    /**
-     * TODO: Add summary
-     */
-    public void updateUserText()
-    {
-        // TODO: Implement this method.
-    }
-
-
-    // ----------------------------------------------------------
-    /**
-     * TODO: Add summary
-     */
-    public void updateRateText()
-    {
-        // TODO: Implement this method.
-    }
-
-
-    // ----------------------------------------------------------
-    /**
-     * TODO: Add summary
-     */
-    public void updateSortingTypeText()
-    {
-        // TODO: Implement this method.
     }
 
 

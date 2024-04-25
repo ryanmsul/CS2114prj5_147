@@ -185,24 +185,23 @@ public class VisualizerWindow
      */
     public void drawBars()
     {
+        //remove previous bars
         window.removeAllShapes();
         
         int shapeX = START_X;
         int shapeY = START_Y;
-        int height = 0;
-        int max = 0;
         if (engagementType.equals("Traditional Engagement Rate")) // sortType should not matter, list is already sorted
-        {                                               // the bars should only depend on engagment rate vals.
-            max = input.get(1).getChannelName().length();
-            int heightMax = (input.get(1).getChannelName().length() / max) * 75;
+        {       // the bars should only depend on engagment rate vals.
+            
+           
             for (int i = 0; i < input.size(); i++)
             {
                 
                 
-                //This needs to be fixed, not drawing bars correctly
+                
                 shapeY = START_Y;
-                height = (input.get(i).getChannelName().length() / max) * 75;
-                shapeY += heightMax - height;
+                
+                
                 //only draws height for first quarter, needs to account for each month. 
                 
                 //Bars must have common ratio
@@ -211,8 +210,8 @@ public class VisualizerWindow
 
                 // draw bar text
 
-                int nameY = shapeY + height + 35;
-                int dataY = shapeY + height + 60;
+                int nameY = shapeY + 35;
+                int dataY = shapeY  + 60;
                 int textX = shapeX;
                 double data;
                 String name = input.get(i).getUsername();
@@ -222,12 +221,14 @@ public class VisualizerWindow
                 if (period.equals("First Quarter (Jan-March)"))
                 {
                     data = input.get(i).getTraditionalEngagementRate();
+                    shapeY-=data;
                     newShape =
                         new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, COLORS[i]);
                 }
                 else 
                 {
                     data = input.get(i).getTraditionalEngagementRate(period);
+                    shapeY-=data;
                     newShape =
                         new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, COLORS[i]);
                 }
@@ -257,23 +258,15 @@ public class VisualizerWindow
             
             else // sortType should not matter, list is already sorted
             {                                               // the bars should only depend on engagment rate vals.
-                max = input.get(1).getChannelName().length();
-                int heightMax = (input.get(1).getChannelName().length() / max) * 75;
+                
                 for (int i = 0; i < input.size(); i++)
                 {
+                    //reset y location
                     shapeY = START_Y;
-                    height = (input.get(i).getChannelName().length() / max) * 75;
-                    shapeY += heightMax - height;
                     
-                    
-                    
-                    
-                    
-
                     // draw bar text
-
-                    int nameY = shapeY + height + 30;
-                    int dataY = shapeY + height + 55;
+                    int nameY = shapeY  + 30;
+                    int dataY = shapeY  + 55;
                     int textX = shapeX;
                     double data;
                     String name = input.get(i).getUsername();
@@ -282,6 +275,7 @@ public class VisualizerWindow
                     if (period.equals("First Quarter (Jan-March)"))
                     {
                         data = input.get(i).getReachEngagementRate();
+                        shapeY-=data;
                         newShape =
                             new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, COLORS[i]); //implement color array to change colors
                         window.addShape(newShape);
@@ -289,17 +283,17 @@ public class VisualizerWindow
                     else 
                     {
                         data = input.get(i).getReachEngagementRate(period);
+                        shapeY-=data;
                         newShape =
                             new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, COLORS[i]); //implement color array to change colors
                         window.addShape(newShape);
                     }
                     
                     
-                    // add name
+                    // add name text below bar
                     addTextShape(name, textX, nameY);
 
-                    //add data
-                    
+                    //add data text below bar                 
                     if(data<0) {
                         dataText = "N/A";
                     }

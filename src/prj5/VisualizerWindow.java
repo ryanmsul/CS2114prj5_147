@@ -203,6 +203,7 @@ public class VisualizerWindow
                 shapeY = START_Y;
                 height = (input.get(i).getChannelName().length() / max) * 75;
                 shapeY += heightMax - height;
+                //only draws height for first quarter, needs to account for each month. 
                 Shape newShape =
                     new Shape(shapeX, shapeY, BAR_WIDTH, (int)(input.get(i).getTraditionalEngagementRate()), COLORS[i]); //implement color array to change colors
                 window.addShape(newShape);
@@ -453,13 +454,14 @@ public class VisualizerWindow
      */
     public void clickedJanuary(Button button)
     {
-        
+        if (!period.equals("January"))
+        {
             period = "January";
             updateText();
             
             sortInfluencers();
             drawBars();
-        
+        }
     }
 
 

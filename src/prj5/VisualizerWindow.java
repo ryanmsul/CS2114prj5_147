@@ -204,9 +204,7 @@ public class VisualizerWindow
                 height = (input.get(i).getChannelName().length() / max) * 75;
                 shapeY += heightMax - height;
                 //only draws height for first quarter, needs to account for each month. 
-                Shape newShape =
-                    new Shape(shapeX, shapeY, BAR_WIDTH, (int)(input.get(i).getTraditionalEngagementRate()), COLORS[i]); //implement color array to change colors
-                window.addShape(newShape);
+                
                 //Bars must have common ratio
                 
                 
@@ -216,18 +214,26 @@ public class VisualizerWindow
                 int nameY = shapeY + height + 35;
                 int dataY = shapeY + height + 60;
                 int textX = shapeX;
+                double data;
                 String name = input.get(i).getUsername();
-                Double data;
                 String dataText;
+                Shape newShape;
+                
                 if (period.equals("First Quarter (Jan-March)"))
                 {
                     data = input.get(i).getTraditionalEngagementRate();
+                    newShape =
+                        new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, COLORS[i]);
                 }
                 else 
                 {
                     data = input.get(i).getTraditionalEngagementRate(period);
+                    newShape =
+                        new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, COLORS[i]);
                 }
                 
+                //add bar
+                window.addShape(newShape);
                 
                 // add name
                 addTextShape(name, textX, nameY);
@@ -261,9 +267,7 @@ public class VisualizerWindow
                     
                     
                     
-                    Shape newShape =
-                        new Shape(shapeX, shapeY, BAR_WIDTH, (int)(input.get(i).getReachEngagementRate()), COLORS[i]); //implement color array to change colors
-                    window.addShape(newShape);
+                    
                     
 
                     // draw bar text
@@ -271,16 +275,23 @@ public class VisualizerWindow
                     int nameY = shapeY + height + 30;
                     int dataY = shapeY + height + 55;
                     int textX = shapeX;
+                    double data;
                     String name = input.get(i).getUsername();
-                    Double data;
                     String dataText;
+                    Shape newShape;
                     if (period.equals("First Quarter (Jan-March)"))
                     {
                         data = input.get(i).getReachEngagementRate();
+                        newShape =
+                            new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, COLORS[i]); //implement color array to change colors
+                        window.addShape(newShape);
                     }
                     else 
                     {
                         data = input.get(i).getReachEngagementRate(period);
+                        newShape =
+                            new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, COLORS[i]); //implement color array to change colors
+                        window.addShape(newShape);
                     }
                     
                     

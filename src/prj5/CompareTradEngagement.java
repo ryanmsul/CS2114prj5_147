@@ -32,15 +32,15 @@ public class CompareTradEngagement
     
     //need testing
     @Override
-    public int compare(Influencer o1, Influencer o2, Month month)
+    public int compare(Influencer o1, Influencer o2, String month)
     {
-        if (o1.getTraditionalEngagementRate(month.getMonth()) > o2
-            .getTraditionalEngagementRate(month.getMonth()))
+        if (o1.getTraditionalEngagementRate(month) > o2
+            .getTraditionalEngagementRate(month))
         {
             return 1;
         }
-        else if (o1.getTraditionalEngagementRate(month.getMonth()) < o2
-            .getTraditionalEngagementRate(month.getMonth()))
+        else if (o1.getTraditionalEngagementRate(month) < o2
+            .getTraditionalEngagementRate(month))
         {
             return -1;
         }

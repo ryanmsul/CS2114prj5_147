@@ -43,9 +43,14 @@ public class VisualizerWindow
     // These vars are good
     private static final int TEXT_X = 20;
     private static final int TEXT_Y = 20;
+    
+    private static final Color[] COLORS = {Color.RED, Color.BLUE, Color.ORANGE, Color.GREEN};
 
+    // we do not need textshape list
     private TextShape[] textShapes;
 
+    
+    // Do not need these
     private Shape[] tradEngagementBars;
     private Shape[] reachEngagementBars;
 
@@ -180,6 +185,8 @@ public class VisualizerWindow
      */
     public void drawBars()
     {
+        window.removeAllShapes();
+        
         int shapeX = START_X;
         int shapeY = START_Y;
         int height = 0;
@@ -190,41 +197,36 @@ public class VisualizerWindow
             int heightMax = (input.get(1).getChannelName().length() / max) * 75;
             for (int i = 0; i < input.size(); i++)
             {
+                
+                
+                //This needs to be fixed, not drawing bars correctly
                 shapeY = START_Y;
                 height = (input.get(i).getChannelName().length() / max) * 75;
                 shapeY += heightMax - height;
                 Shape newShape =
-                    new Shape(shapeX, shapeY, BAR_WIDTH, height, Color.red);
+                    new Shape(shapeX, shapeY, BAR_WIDTH, (int)(input.get(i).getTraditionalEngagementRate()), COLORS[i]); //implement color array to change colors
                 window.addShape(newShape);
+                //Bars must have common ratio
+                
                 
 
                 // draw bar text
 
-                int nameY = shapeY + height + 20;
-                int dataY = shapeY + height + 45;
+                int nameY = shapeY + height + 35;
+                int dataY = shapeY + height + 60;
                 int textX = shapeX;
                 String name = input.get(i).getUsername();
                 Double data;
                 String dataText;
-                if (engagementType.equals("Traditional Engagement Rate")
-                    && period.equals("First Quarter (Jan-March)"))
+                if (period.equals("First Quarter (Jan-March)"))
                 {
                     data = input.get(i).getTraditionalEngagementRate();
                 }
-                else if (engagementType.equals("Traditional Engagement Rate")
-                    && !period.equals("First Quarter (Jan-March)"))
+                else 
                 {
                     data = input.get(i).getTraditionalEngagementRate(period);
                 }
-                else if (engagementType.equals("Reach Engagement Rate")
-                    && period.equals("First Quarter (Jan-March)"))
-                {
-                    data = input.get(i).getReachEngagementRate();
-                }
-                else
-                {
-                    data = input.get(i).getReachEngagementRate(period);
-                }
+                
                 
                 // add name
                 addTextShape(name, textX, nameY);
@@ -235,7 +237,7 @@ public class VisualizerWindow
                     dataText = "N/A";
                 }
                 else {
-                    dataText = data.toString();
+                    dataText = formatDecimal(data);
                 }
                 
                 addTextShape(dataText, textX, dataY);
@@ -244,6 +246,61 @@ public class VisualizerWindow
                 //move next bar to right
                 shapeX += 200;
             }
+        }
+            
+            else // sortType should not matter, list is already sorted
+            {                                               // the bars should only depend on engagment rate vals.
+                max = input.get(1).getChannelName().length();
+                int heightMax = (input.get(1).getChannelName().length() / max) * 75;
+                for (int i = 0; i < input.size(); i++)
+                {
+                    shapeY = START_Y;
+                    height = (input.get(i).getChannelName().length() / max) * 75;
+                    shapeY += heightMax - height;
+                    
+                    
+                    
+                    Shape newShape =
+                        new Shape(shapeX, shapeY, BAR_WIDTH, (int)(input.get(i).getReachEngagementRate()), COLORS[i]); //implement color array to change colors
+                    window.addShape(newShape);
+                    
+
+                    // draw bar text
+
+                    int nameY = shapeY + height + 30;
+                    int dataY = shapeY + height + 55;
+                    int textX = shapeX;
+                    String name = input.get(i).getUsername();
+                    Double data;
+                    String dataText;
+                    if (period.equals("First Quarter (Jan-March)"))
+                    {
+                        data = input.get(i).getReachEngagementRate();
+                    }
+                    else 
+                    {
+                        data = input.get(i).getReachEngagementRate(period);
+                    }
+                    
+                    
+                    // add name
+                    addTextShape(name, textX, nameY);
+
+                    //add data
+                    
+                    if(data<0) {
+                        dataText = "N/A";
+                    }
+                    else {
+                        dataText = formatDecimal(data);
+                    }
+                    
+                    addTextShape(dataText, textX, dataY);
+                    
+                    
+                    //move next bar to right
+                    shapeX += 200;
+                }
         }
     }
     
@@ -300,6 +357,7 @@ public class VisualizerWindow
             updateText();
 
             sortInfluencers();
+            drawBars();
 
         }
     }
@@ -322,6 +380,7 @@ public class VisualizerWindow
             updateText();
 
             sortInfluencers();
+            drawBars();
 
         }
     }
@@ -344,6 +403,7 @@ public class VisualizerWindow
             updateText();
 
             sortInfluencers();
+            drawBars();
         }
     }
 
@@ -353,6 +413,8 @@ public class VisualizerWindow
      * Helper method that sorts influencers whenever a button that changes the
      * order is called.
      */
+    
+    //does not account for individual month sorting
     private void sortInfluencers()
     {
         if (sortType.equals("Sorting by Channel Name"))
@@ -363,11 +425,18 @@ public class VisualizerWindow
         {
             if (engagementType.equals("Traditional Engagement Rate"))
             {
-                input.insertionSort(new CompareTradEngagement());
+                if(period.equals("First Quarter (Jan-March)"))
+                    input.insertionSort(new CompareTradEngagement());   
+                else
+                    input.insertionSort(new CompareTradEngagement(),period);
             }
             else
             {
-                input.insertionSort(new CompareReachEngagement());
+                if(period.equals("First Quarter (Jan-March)"))
+                    input.insertionSort(new CompareReachEngagement());   
+                else
+                    input.insertionSort(new CompareReachEngagement(),period);
+                
             }
         }
     }
@@ -384,12 +453,13 @@ public class VisualizerWindow
      */
     public void clickedJanuary(Button button)
     {
-        if (!period.equals("January"))
-        {
+        
             period = "January";
             updateText();
-            this.drawBars();
-        }
+            
+            sortInfluencers();
+            drawBars();
+        
     }
 
 
@@ -408,7 +478,8 @@ public class VisualizerWindow
         {
             period = "February";
             updateText();
-            this.drawBars();
+            sortInfluencers();
+            drawBars();
         }
     }
 
@@ -427,7 +498,8 @@ public class VisualizerWindow
         {
             period = "March";
             updateText();
-            this.drawBars();
+            sortInfluencers();
+            drawBars();
         }
     }
 
@@ -447,7 +519,8 @@ public class VisualizerWindow
         {
             period = "First Quarter (Jan-March)";
             updateText();
-            this.drawBars();
+            sortInfluencers();
+            drawBars();
         }
     }
 

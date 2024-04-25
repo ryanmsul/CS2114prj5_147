@@ -554,7 +554,7 @@ public class SinglyLinkedList<T>
      */
     public
         void
-        insertionSort(CompareEngagement<? super T> comparer, Month month)
+        insertionSort(CompareEngagement<? super T> comparer, String month)
     {
         if (size > 1)
         {
@@ -608,7 +608,7 @@ public class SinglyLinkedList<T>
     private void insertInOrder(
         Node<T> nodeToInsert,
         CompareEngagement<? super T> comparer,
-        Month month)
+        String month)
     {
         T nodeData = nodeToInsert.getData();
         Node<T> current = head;

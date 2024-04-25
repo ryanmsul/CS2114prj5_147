@@ -53,7 +53,7 @@ public class ProjectRunner
         {
             try
             {
-                filer = new InputFileReader("SampleInput1_2023.csv");
+                filer = new InputFileReader("SampleInput3_2023.csv");
             }
             catch (FileNotFoundException e)
             {

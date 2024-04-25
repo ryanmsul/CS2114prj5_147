@@ -27,5 +27,5 @@ public interface CompareEngagement<T>
      *            The month object
      * @return Returns an int based on whether o2 is > o1.
      */
-    public int compare(T o1, T o2, Month month);
+    public int compare(T o1, T o2, String month);
 }

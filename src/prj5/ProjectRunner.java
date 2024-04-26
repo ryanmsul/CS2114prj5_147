@@ -9,7 +9,7 @@ import java.text.ParseException;
  * The ProjectRunner class allows us to run specific input files and check our
  * output, which is useful to finding errors between expected and actual output.
  * 
- * @author ddmat
+ * @author David Mathews (davidm05)
  * @version Apr 16, 2024
  */
 public class ProjectRunner
@@ -22,6 +22,7 @@ public class ProjectRunner
      * @param args
      * @throws IOException
      */
+    @SuppressWarnings("unused")
     public static void main(String[] args)
         throws IOException
     {

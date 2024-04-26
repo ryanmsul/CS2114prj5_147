@@ -389,7 +389,7 @@ public class SinglyLinkedListTest
         assertTrue(list1.equals(otherList1));
         assertFalse(list1.equals(emptyList));
         assertFalse(list1.equals(null));
-        assertFalse(list1.equals("bananas"));
+        assertFalse(list1.equals(new Object()));
         assertFalse(list1.equals(list2));
     }
 }

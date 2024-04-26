@@ -2,6 +2,7 @@ package prj5;
 
 import java.util.Comparator;
 
+
 // -------------------------------------------------------------------------
 /**
  * This is a Singly linked list that uses nodes
@@ -227,47 +228,39 @@ public class SinglyLinkedList<T>
     @Override
     public boolean remove(T obj)
     {
-        if (obj == null)
-        {
-            return false;
-        }
+        Node<T> current = head;
+        
+        // account for obj being null
+           if (obj == null) 
+           {
+               return false;
+           }
+           
+           // account for matching head
+           if ((null != head) && (obj.equals(current.data))) {
+               head = head.next;
+               size--;
+               return true;
+           }
 
-        if ((head != null) && contains(obj))
-        {
-            Node<T> current = head;
-            // account for matching head
-            if (obj != null && (obj.equals(current.data)))
-            {
-                head = head.next;
-                size--;
-                return true;
-            }
+           // account for 2+ size
+           while (size() >= 2 && (current.next != null)) {
+               if ((obj.equals(current.next.data))) {
+                   if (current.next.next != null) {
+                       current.setNext(current.next.next);
+                   }
+                   else 
+                   {
+                       current.next = null;
+                   }
+                   size--;
+                   return true;
+               }
+               current = current.next;
+           }
 
-            // account for 2+ size
-            while (size() >= 2 && (current != null))
-            {
-                if (obj.equals(current.next.data))
-                {
-                    if (current.next.next != null)
-                    {
-                        current.setNext(current.next.next);
-                    }
-                    else
-                    {
-                        current.setNext(null);
-                    }
-                    size--;
-                    return true;
-                }
-                current = current.next;
-            }
-
-            // accounts for size == 1
-            clear();
-            return true;
-        }
-        // this accounts for the isEmpty case or the object does not exist
-        return false;
+           // this accounts for the isEmpty case or the object does not exist
+           return false;
     }
 
 

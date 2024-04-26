@@ -51,8 +51,13 @@ public class SinglyLinkedListTest
      */
     public void testInsertionSort()
     {
+        
         SinglyLinkedList<String> insertionSortedList =
             new SinglyLinkedList<String>();
+        
+        insertionSortedList.insertionSort(new CompareString());
+        assertEquals("{}", insertionSortedList.toString());
+        
         insertionSortedList.add("B");
         insertionSortedList.add("D");
         insertionSortedList.add("C");
@@ -64,7 +69,9 @@ public class SinglyLinkedListTest
         insertionSortedList.insertionSort(new CompareString());
 
         assertEquals("{A, B, C, D, E}", insertionSortedList.toString());
-
+        
+        
+        
     }
 
 
@@ -199,6 +206,7 @@ public class SinglyLinkedListTest
      */
     public void testRemove()
     {
+        
         // remove head
         assertTrue(list1.remove("apple"));
 
@@ -318,6 +326,7 @@ public class SinglyLinkedListTest
     {
         assertTrue(list1.contains("apple"));
         assertFalse(list1.contains("not in list"));
+        assertFalse(list1.contains(null));
     }
 
 
@@ -391,5 +400,19 @@ public class SinglyLinkedListTest
         assertFalse(list1.equals(null));
         assertFalse(list1.equals(new Object()));
         assertFalse(list1.equals(list2));
+    }
+    
+    /**
+     * test of the insertion sort method but has a string parameter included
+     * @throws MonthException 
+     */
+    public void testInsertionSortParameter() throws MonthException
+    {
+        
+        SinglyLinkedList<String> insertionSortedList =
+            new SinglyLinkedList<String>();
+        
+        insertionSortedList.insertionSort(null, "A");
+        assertEquals("{}", insertionSortedList.toString());
     }
 }

@@ -53,6 +53,11 @@ public class SinglyLinkedListTest
     {
         SinglyLinkedList<String> insertionSortedList =
             new SinglyLinkedList<String>();
+        
+        insertionSortedList.insertionSort(new CompareString());
+        
+        insertionSortedList.insertionSort(null, "A");
+        
         insertionSortedList.add("B");
         insertionSortedList.add("D");
         insertionSortedList.add("C");
@@ -220,7 +225,8 @@ public class SinglyLinkedListTest
         emptyList.add("first elem");
         emptyList.add("second elem");
         assertTrue(emptyList.remove("second elem"));
-
+        
+        assertFalse(list1.contains(null));
     }
 
 

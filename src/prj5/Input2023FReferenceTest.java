@@ -84,7 +84,8 @@ public class Input2023FReferenceTest
      * @throws MonthException
      * @throws ParseException
      */
-    @Hint("The main method is not working properly with the input file from the instructions")
+    @Hint("The main method is not working properly with the input file from "
+        + "the instructions")
     public void testMainFuzzyEqualsSameInput()
         throws java.io.IOException,
         ParseException,
@@ -130,7 +131,8 @@ public class Input2023FReferenceTest
      * @throws MonthException
      * @throws ParseException
      */
-    @Hint("The main method is not working properly with the input file from the instructions")
+    @Hint("The main method is not working properly with the input file from "
+        + "the instructions")
     public void testMainFuzzyEqualsSameInputLast()
         throws java.io.IOException,
         ParseException,
@@ -231,12 +233,14 @@ public class Input2023FReferenceTest
                 if (expected.equals("=========="))
                 {
                     fail(
-                        "Malformed line to divide channels.  Should be: ========== (10 '=' signs)");
+                        "Malformed line to divide channels.  Should be: ====="
+                            + "===== (10 '=' signs)");
                 }
                 else if (expected.equals("**********"))
                 {
                     fail(
-                        "Malformed line to divide calculations.  Should be ********** (10 '*' signs)\"))");
+                        "Malformed line to divide calculations.  Should be ****"
+                            + "****** (10 '*' signs)\"))");
 
                     // I want to offer different feedback about math errors vs
                     // malformed strings
@@ -251,7 +255,8 @@ public class Input2023FReferenceTest
                             "Incorrect label!  Expected the word: "
                                 + expectedSplit[0] + " but got "
                                 + testResultSplit[0]
-                                + "make sure there's also a ': ' between label and number");
+                                + "make sure there's also a ': ' between label"
+                                + " and number");
                     }
                     if (!expectedSplit[1].equals(testResultSplit[1]))
                     {
@@ -294,7 +299,8 @@ public class Input2023FReferenceTest
      * @throws ParseException
      * @throws MonthException
      */
-    @Hint("The main method is not working properly with a the input file provided in instructions")
+    @Hint("The main method is not working properly with a the input file "
+        + "provided in instructions")
     public void testMain02()
         throws java.io.IOException,
         ParseException,
@@ -350,12 +356,14 @@ public class Input2023FReferenceTest
                 if (expected.equals("=========="))
                 {
                     fail(
-                        "Malformed line to divide channels.  Should be: ========== (10 '=' signs)");
+                        "Malformed line to divide channels.  Should be: "
+                            + "========== (10 '=' signs)");
                 }
                 else if (expected.equals("**********"))
                 {
                     fail(
-                        "Malformed line to divide calculations.  Should be ********** (10 '*' signs)\"))");
+                        "Malformed line to divide calculations.  Should be ***"
+                            + "******* (10 '*' signs)\"))");
 
                     // I want to offer different feedback about math errors vs
                     // malformed strings
@@ -370,7 +378,8 @@ public class Input2023FReferenceTest
                             "Incorrect label!  Expected the word: "
                                 + expectedSplit[0] + " but got "
                                 + testResultSplit[0]
-                                + "make sure there's also a ': ' between label and number");
+                                + "make sure there's also a ': ' between label"
+                                + " and number");
                     }
                     if (!expectedSplit[1].equals(testResultSplit[1]))
                     {
@@ -380,7 +389,8 @@ public class Input2023FReferenceTest
                         fail(
                             "Math error for a calculation on "
                                 + expectedSplit[0]
-                                + " for this submission make sure you're only recording data for January - April");
+                                + " for this submission make sure you're only"
+                                + " recording data for January - April");
 
                     }
 

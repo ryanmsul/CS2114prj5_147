@@ -6,8 +6,9 @@ import student.IOHelper;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * The inputFileReader class will read the files holding the information that
+ * will be processed and pushed through the influencer and month classes and 
+ * turned into processable data.
  * 
  * @author ddmat
  * @version Apr 16, 2024

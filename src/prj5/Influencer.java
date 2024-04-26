@@ -2,8 +2,8 @@ package prj5;
 
 // -------------------------------------------------------------------------
 /**
- * Write a one-sentence summary of your class here. Follow it with additional
- * details about its purpose, what abstraction it represents, and how to use it.
+ * The influencer class represents the influencer itself which will hold the 
+ * channels name and the views and likes each influencer has for each month
  * 
  * @author jesse
  * @version Apr 16, 2024
@@ -262,7 +262,7 @@ public class Influencer
         return ((comments + likes) / views) * 100;
     }
 
-
+    
     @Override
     public boolean equals(Object obj)
     {

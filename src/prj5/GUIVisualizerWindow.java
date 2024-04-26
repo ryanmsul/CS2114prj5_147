@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
  * @author jesse
  * @version Apr 19, 2024
  */
-public class VisualizerWindow
+public class GUIVisualizerWindow
 {
     private Window window;
     private SinglyLinkedList<Influencer> input;
@@ -39,6 +39,7 @@ public class VisualizerWindow
     private static final int START_Y = 500;
     private static final int BAR_WIDTH = 20;
 
+    // These vars are good
     private static final int TEXT_X = 10;
     private static final int TEXT_Y = 10;
 
@@ -56,7 +57,7 @@ public class VisualizerWindow
      *            the linked list of influncer objects that the visualiser is
      *            checking
      */
-    public VisualizerWindow(SinglyLinkedList<Influencer> input)
+    public GUIVisualizerWindow(SinglyLinkedList<Influencer> input)
     {
         period = "First Quarter (Jan-March)";
         engagementType = "Traditional Engagement Rate";
@@ -117,10 +118,13 @@ public class VisualizerWindow
      */
     public void updateText()
     {
+        // The textShapes array will have the periodText, engageTypeText, and
+        // sortType text in the indexes 0,1,2.
 
-        addTextShape(period, TEXT_X, TEXT_Y);
-        addTextShape(engagementType, TEXT_X, TEXT_Y + 15);
-        addTextShape(sortType, TEXT_X, TEXT_Y + 30);
+        TextShape periodText = addTextShape(period, TEXT_X, TEXT_Y);
+        TextShape engagementTypeText =
+            addTextShape(engagementType, TEXT_X, TEXT_Y + 15);
+        TextShape sortTypeText = addTextShape(sortType, TEXT_X, TEXT_Y + 30);
 
     }
 
@@ -162,6 +166,12 @@ public class VisualizerWindow
             {
 
                 shapeY = START_Y;
+
+                // only draws height for first quarter, needs to account for
+                // each
+                // month.
+
+                // Bars must have common ratio
 
                 // draw bar text
 

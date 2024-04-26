@@ -1,7 +1,5 @@
 package prj5;
 
-import java.util.Comparator;
-
 // -------------------------------------------------------------------------
 /**
  * This is a helper class which implements the Comprator object to sort

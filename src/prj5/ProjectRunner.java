@@ -119,7 +119,7 @@ public class ProjectRunner
         }
         if (showGUI)
         {
-            VisualizerWindow vWindow = new VisualizerWindow(input);
+            GUIVisualizerWindow vWindow = new GUIVisualizerWindow(input);
 
             /*
              * TODO: For final Submission - Should have the GUI display for the

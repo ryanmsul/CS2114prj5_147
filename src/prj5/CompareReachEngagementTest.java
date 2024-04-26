@@ -60,7 +60,8 @@ public class CompareReachEngagementTest
         assertEquals(0, comparer.compare(iA, iADup));
 
     }
-    
+
+
     /**
      * tests comparing reach engagement for single month
      */
@@ -68,8 +69,8 @@ public class CompareReachEngagementTest
     {
 
         assertEquals(1, comparer.compare(iA, iB, "March"));
-        assertEquals(-1, comparer.compare(iB, iA,"February"));
-        assertEquals(0, comparer.compare(iA, iADup,"January"));
+        assertEquals(-1, comparer.compare(iB, iA, "February"));
+        assertEquals(0, comparer.compare(iA, iADup, "January"));
 
     }
 }

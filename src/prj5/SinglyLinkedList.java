@@ -2,7 +2,6 @@ package prj5;
 
 import java.util.Comparator;
 
-
 // -------------------------------------------------------------------------
 /**
  * This is a Singly linked list that uses nodes
@@ -229,38 +228,42 @@ public class SinglyLinkedList<T>
     public boolean remove(T obj)
     {
         Node<T> current = head;
-        
+
         // account for obj being null
-           if (obj == null) 
-           {
-               return false;
-           }
-           
-           // account for matching head
-           if ((null != head) && (obj.equals(current.data))) {
-               head = head.next;
-               size--;
-               return true;
-           }
+        if (obj == null)
+        {
+            return false;
+        }
 
-           // account for 2+ size
-           while (size() >= 2 && (current.next != null)) {
-               if ((obj.equals(current.next.data))) {
-                   if (current.next.next != null) {
-                       current.setNext(current.next.next);
-                   }
-                   else 
-                   {
-                       current.next = null;
-                   }
-                   size--;
-                   return true;
-               }
-               current = current.next;
-           }
+        // account for matching head
+        if ((null != head) && (obj.equals(current.data)))
+        {
+            head = head.next;
+            size--;
+            return true;
+        }
 
-           // this accounts for the isEmpty case or the object does not exist
-           return false;
+        // account for 2+ size
+        while (size() >= 2 && (current.next != null))
+        {
+            if ((obj.equals(current.next.data)))
+            {
+                if (current.next.next != null)
+                {
+                    current.setNext(current.next.next);
+                }
+                else
+                {
+                    current.next = null;
+                }
+                size--;
+                return true;
+            }
+            current = current.next;
+        }
+
+        // this accounts for the isEmpty case or the object does not exist
+        return false;
     }
 
 

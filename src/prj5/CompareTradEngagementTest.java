@@ -58,7 +58,8 @@ public class CompareTradEngagementTest
         assertEquals(0, comparer.compare(iA, iADup));
 
     }
-    
+
+
     /**
      * tests comparing traditional engagement for single month
      */
@@ -66,8 +67,8 @@ public class CompareTradEngagementTest
     {
 
         assertEquals(1, comparer.compare(iA, iB, "March"));
-        assertEquals(-1, comparer.compare(iB, iA,"February"));
-        assertEquals(0, comparer.compare(iA, iADup,"January"));
+        assertEquals(-1, comparer.compare(iB, iA, "February"));
+        assertEquals(0, comparer.compare(iA, iADup, "January"));
 
     }
 

@@ -64,7 +64,8 @@ public class GUIVisualizerWindow
         sortType = "Sorting by Channel Name";
 
         // create window
-        window = new Window("Social Media Visualizer");
+        window = new Window(
+            "Social Media Vis davidm05 jimenejessej05 ajm7243 ryanmsul12");
         this.input = input;
         this.input.insertionSort(new CompareChannelName());
 

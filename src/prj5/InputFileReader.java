@@ -10,7 +10,7 @@ import student.IOHelper;
  * will be processed and pushed through the influencer and month classes and
  * turned into processable data.
  * 
- * @author ddmat
+ * @author David Mathews (davidm05)
  * @version Apr 16, 2024
  */
 public class InputFileReader

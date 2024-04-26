@@ -6,7 +6,7 @@ import java.util.Comparator;
 /**
  * This is a Singly linked list that uses nodes
  * 
- * @author ddmat
+ * @author David Mathews (davidm05)
  * @version Apr 16, 2024
  * @param <T>
  *            The generic parameter

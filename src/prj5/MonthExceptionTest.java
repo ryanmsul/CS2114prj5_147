@@ -4,7 +4,7 @@ package prj5;
 /**
  * A test class for the MonthException.
  * 
- * @author ddmat
+ * @author David Mathews (davidm05)
  * @version Apr 18, 2024
  */
 public class MonthExceptionTest

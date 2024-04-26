@@ -36,8 +36,8 @@ public class VisualizerWindow
     private String sortType;
 
     // TODO: Figure out these numbers, current ones are placeholders.
-    private static final int START_X = 300;
-    private static final int START_Y = 600;
+    private static final int START_X = 200;
+    private static final int START_Y = 500;
     private static final int BAR_WIDTH = 20;
 
     // These vars are good

@@ -30,7 +30,6 @@ public class CompareReachEngagement
     }
 
 
-    
     // needs testing
     @Override
     public int compare(Influencer o1, Influencer o2, String month)

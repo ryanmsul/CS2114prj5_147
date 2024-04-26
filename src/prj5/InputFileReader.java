@@ -7,7 +7,7 @@ import student.IOHelper;
 // -------------------------------------------------------------------------
 /**
  * The inputFileReader class will read the files holding the information that
- * will be processed and pushed through the influencer and month classes and 
+ * will be processed and pushed through the influencer and month classes and
  * turned into processable data.
  * 
  * @author ddmat

@@ -28,7 +28,8 @@ public class MonthTest
     /**
      * Tests that the equals method returns the expected output in all the
      * scenarios.
-     * @throws MonthException 
+     * 
+     * @throws MonthException
      */
     public void testEquals()
         throws MonthException
@@ -51,10 +52,10 @@ public class MonthTest
         assertFalse(month.equals(nullMonth));
         // Checked against a month with a different param value i.e month name -
         // False
-        try 
+        try
         {
             Month differentMonthName = new Month("Noctober", 4, 5, 10, 20, 50);
-            month.equals(differentMonthName);    
+            month.equals(differentMonthName);
         }
         catch (Exception e)
         {
@@ -62,7 +63,7 @@ public class MonthTest
         }
         assertNotNull(thrown);
         assertTrue(thrown instanceof MonthException);
-        
+
         // Checked against obj of a different class.
         assertFalse(month.equals(obj));
         // Checked against a month with a different param value(likes)- False

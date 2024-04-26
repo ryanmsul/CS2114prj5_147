@@ -2,7 +2,7 @@ package prj5;
 
 // -------------------------------------------------------------------------
 /**
- * The influencer class represents the influencer itself which will hold the 
+ * The influencer class represents the influencer itself which will hold the
  * channels name and the views and likes each influencer has for each month
  * 
  * @author jesse
@@ -124,7 +124,7 @@ public class Influencer
 
             String curMonth = monthActivity.get(i).getMonth().toUpperCase();
             if (curMonth.equals(month.toUpperCase()))
-                
+
             {
 
                 followers += monthActivity.get(i).getFollowers();
@@ -132,7 +132,6 @@ public class Influencer
                 comments += monthActivity.get(i).getComments();
             }
         }
-
 
         if (followers == 0)
         {
@@ -210,7 +209,7 @@ public class Influencer
 
             String curMonth = monthActivity.get(i).getMonth().toUpperCase();
             if (curMonth.equals(month.toUpperCase()))
-                
+
             {
 
                 likes += monthActivity.get(i).getLikes();
@@ -262,7 +261,7 @@ public class Influencer
         return ((comments + likes) / views) * 100;
     }
 
-    
+
     @Override
     public boolean equals(Object obj)
     {

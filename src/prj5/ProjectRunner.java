@@ -26,7 +26,6 @@ public class ProjectRunner
         throws IOException
     {
 
-        
         // Changes input file based on passed arguments
         InputFileReader filer = null;
 
@@ -120,7 +119,7 @@ public class ProjectRunner
         if (showGUI)
         {
             VisualizerWindow vWindow = new VisualizerWindow(input);
-            
+
             /*
              * TODO: For final Submission - Should have the GUI display for the
              * input data

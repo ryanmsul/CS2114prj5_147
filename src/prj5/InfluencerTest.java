@@ -73,8 +73,10 @@ public class InfluencerTest
             ((2.0 + 8.0) / 6) * 100.0,
             iB.getTraditionalEngagementRate(month.getMonth()),
             0.1);
-        assertEquals(-1, iAZero.getTraditionalEngagementRate
-            (monthZero.getMonth()), 0.1);
+        assertEquals(
+            -1,
+            iAZero.getTraditionalEngagementRate(monthZero.getMonth()),
+            0.1);
     }
 
 
@@ -131,8 +133,10 @@ public class InfluencerTest
             ((2.0 + 8.0) / 10.0) * 100.0,
             iB.getReachEngagementRate(month.getMonth()),
             0.1);
-        assertEquals(-1, iAZero.getReachEngagementRate
-            (monthZero.getMonth()), 0.1);
+        assertEquals(
+            -1,
+            iAZero.getReachEngagementRate(monthZero.getMonth()),
+            0.1);
     }
 
 

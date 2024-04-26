@@ -59,7 +59,11 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * TODO: Add summary
+     * Creates a new GUI window that visualizes the data of sample
+     * of influncers over the first quarter.
+     *  
+     * @param input the linked list of influncer objects that
+     * the visualiser is checking
      */
     public VisualizerWindow(SinglyLinkedList<Influencer> input)
     {

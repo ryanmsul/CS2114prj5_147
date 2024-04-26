@@ -48,14 +48,26 @@ public class CompareTradEngagementTest
 
     // ----------------------------------------------------------
     /**
-     * tests comparing channel names
+     * tests comparing traditional engagement for first quarter
      */
-    public void testCompareReachEngagement()
+    public void testCompareTraditionalEngagement()
     {
 
         assertEquals(1, comparer.compare(iA, iB));
         assertEquals(-1, comparer.compare(iB, iA));
         assertEquals(0, comparer.compare(iA, iADup));
+
+    }
+    
+    /**
+     * tests comparing traditional engagement for single month
+     */
+    public void testCompareTraditionalEngagementMonth()
+    {
+
+        assertEquals(1, comparer.compare(iA, iB, "March"));
+        assertEquals(-1, comparer.compare(iB, iA,"February"));
+        assertEquals(0, comparer.compare(iA, iADup,"January"));
 
     }
 

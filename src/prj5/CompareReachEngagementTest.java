@@ -50,7 +50,7 @@ public class CompareReachEngagementTest
 
     // ----------------------------------------------------------
     /**
-     * tests comparing channel names
+     * tests comparing reach engagement for first quarter
      */
     public void testCompareReachEngagement()
     {
@@ -58,6 +58,18 @@ public class CompareReachEngagementTest
         assertEquals(1, comparer.compare(iA, iB));
         assertEquals(-1, comparer.compare(iB, iA));
         assertEquals(0, comparer.compare(iA, iADup));
+
+    }
+    
+    /**
+     * tests comparing reach engagement for single month
+     */
+    public void testCompareReachEngagementMonth()
+    {
+
+        assertEquals(1, comparer.compare(iA, iB, "March"));
+        assertEquals(-1, comparer.compare(iB, iA,"February"));
+        assertEquals(0, comparer.compare(iA, iADup,"January"));
 
     }
 }

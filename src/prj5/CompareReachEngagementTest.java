@@ -5,7 +5,7 @@ package prj5;
  * A test class for the CompareReachEngagement helper class, tests all methods
  * and instructions possible in the class.
  * 
- * @author ddmat
+ * @author David Mathews (davidm05)
  * @version Apr 18, 2024
  */
 public class CompareReachEngagementTest

@@ -41,19 +41,12 @@ public class VisualizerWindow
     private static final int BAR_WIDTH = 20;
 
     // These vars are good
-    private static final int TEXT_X = 20;
-    private static final int TEXT_Y = 20;
+    private static final int TEXT_X = 10;
+    private static final int TEXT_Y = 10;
     
     private static final Color[] COLORS = {Color.RED, Color.BLUE, Color.ORANGE, 
         Color.GREEN};
 
-    // we do not need textshape list
-    private TextShape[] textShapes;
-
-    
-    // Do not need these
-    private Shape[] tradEngagementBars;
-    private Shape[] reachEngagementBars;
 
     private static final DecimalFormat NUM_FORMATTER = new DecimalFormat("#.#");
 
@@ -113,10 +106,11 @@ public class VisualizerWindow
         window.addButton(firstQuarterButton, WindowSide.SOUTH);
         firstQuarterButton.onClick(this, "clickedQuarterButton");
 
-        textShapes = new TextShape[3];
+        
 
-        updateText();
+        
         drawBars();
+        updateText();
 
         return;
     }
@@ -130,41 +124,15 @@ public class VisualizerWindow
     {
         // The textShapes array will have the periodText, engageTypeText, and
         // sortType text in the indexes 0,1,2.
-        if (textShapes[0] == null)
-        {
-            TextShape periodText = addTextShape(period, TEXT_X, TEXT_Y, 0);
+       
+            TextShape periodText = addTextShape(period, TEXT_X, TEXT_Y);
             TextShape engagementTypeText =
-                addTextShape(engagementType, TEXT_X, TEXT_Y + 15, 1);
+                addTextShape(engagementType, TEXT_X, TEXT_Y + 15);
             TextShape sortTypeText =
-                addTextShape(sortType, TEXT_X, TEXT_Y + 30, 2);
-        }
-        else
-        {
-            textShapes[0].setText(period);
-            textShapes[1].setText(engagementType);
-            textShapes[2].setText(sortType);
-        }
+                addTextShape(sortType, TEXT_X, TEXT_Y + 30);
+        
     }
 
-
-    /**
-     * Helper method to add a TextShape to the window overloaded to add
-     * textShapes to text shape array
-     */
-    private TextShape addTextShape(String message, int x, int y, int shapeIndex)
-    {
-        if (message != null)
-        {
-            TextShape s = new TextShape(x, y, message, Color.black);
-            s.setBackgroundColor(Color.white);
-            window.addShape(s);
-
-            textShapes[shapeIndex] = s;
-
-            return s;
-        }
-        return null;
-    }
 
 
     /**
@@ -323,6 +291,8 @@ public class VisualizerWindow
                     shapeX += 200;
                 }
         }
+        updateText();
+        
     }
     
     
@@ -354,7 +324,7 @@ public class VisualizerWindow
         if (!sortType.equals("Sorting by Channel Name"))
         {
             sortType = "Sorting by Channel Name";
-            updateText();
+            
 
             sortInfluencers();
             drawBars();
@@ -375,7 +345,7 @@ public class VisualizerWindow
         if (!sortType.equals("Sorting by Engagement Rate"))
         {
             sortType = "Sorting by Engagement Rate";
-            updateText();
+            
 
             sortInfluencers();
             drawBars();
@@ -398,7 +368,7 @@ public class VisualizerWindow
         if (!engagementType.equals("Traditional Engagement Rate"))
         {
             engagementType = "Traditional Engagement Rate";
-            updateText();
+            
 
             sortInfluencers();
             drawBars();
@@ -421,7 +391,7 @@ public class VisualizerWindow
         if (!engagementType.equals("Reach Engagement Rate"))
         {
             engagementType = "Reach Engagement Rate";
-            updateText();
+            
 
             sortInfluencers();
             drawBars();
@@ -477,7 +447,7 @@ public class VisualizerWindow
         if (!period.equals("January"))
         {
             period = "January";
-            updateText();
+            
             
             sortInfluencers();
             drawBars();
@@ -499,7 +469,7 @@ public class VisualizerWindow
         if (!period.equals("February"))
         {
             period = "February";
-            updateText();
+            
             sortInfluencers();
             drawBars();
         }
@@ -519,7 +489,7 @@ public class VisualizerWindow
         if (!period.equals("March"))
         {
             period = "March";
-            updateText();
+            
             sortInfluencers();
             drawBars();
         }
@@ -540,7 +510,7 @@ public class VisualizerWindow
         if (!period.equals("First Quarter (Jan-March)"))
         {
             period = "First Quarter (Jan-March)";
-            updateText();
+            
             sortInfluencers();
             drawBars();
         }

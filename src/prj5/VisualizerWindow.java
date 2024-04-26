@@ -44,7 +44,8 @@ public class VisualizerWindow
     private static final int TEXT_X = 20;
     private static final int TEXT_Y = 20;
     
-    private static final Color[] COLORS = {Color.RED, Color.BLUE, Color.ORANGE, Color.GREEN};
+    private static final Color[] COLORS = {Color.RED, Color.BLUE, Color.ORANGE, 
+        Color.GREEN};
 
     // we do not need textshape list
     private TextShape[] textShapes;
@@ -119,7 +120,7 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * TODO: Add summary
+     * Updates the text in the visual window based off what the user has clicked
      */
     public void updateText()
     {
@@ -181,7 +182,7 @@ public class VisualizerWindow
 
     // ----------------------------------------------------------
     /**
-     * TODO: Add summary
+     * Draws the bars onto the screen based off what was clicked by the user
      */
     public void drawBars()
     {
@@ -190,8 +191,10 @@ public class VisualizerWindow
         
         int shapeX = START_X;
         int shapeY = START_Y;
-        if (engagementType.equals("Traditional Engagement Rate")) // sortType should not matter, list is already sorted
-        {       // the bars should only depend on engagment rate vals.
+        if (engagementType.equals("Traditional Engagement Rate")) // sortType 
+            //should not matter, list is already sorted
+            // the bars should only depend on engagment rate vals.
+        {    
             
            
             for (int i = 0; i < input.size(); i++)
@@ -202,7 +205,8 @@ public class VisualizerWindow
                 shapeY = START_Y;
                 
                 
-                //only draws height for first quarter, needs to account for each month. 
+                //only draws height for first quarter, needs to account for each
+                // month. 
                 
                 //Bars must have common ratio
                 
@@ -223,14 +227,16 @@ public class VisualizerWindow
                     data = input.get(i).getTraditionalEngagementRate();
                     shapeY-=data;
                     newShape =
-                        new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, COLORS[i]);
+                        new Shape(shapeX, shapeY, BAR_WIDTH, 
+                            (int)data, COLORS[i]);
                 }
                 else 
                 {
                     data = input.get(i).getTraditionalEngagementRate(period);
                     shapeY-=data;
                     newShape =
-                        new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, COLORS[i]);
+                        new Shape(shapeX, shapeY, BAR_WIDTH, 
+                            (int)data, COLORS[i]);
                 }
                 
                 //add bar
@@ -257,7 +263,8 @@ public class VisualizerWindow
         }
             
             else // sortType should not matter, list is already sorted
-            {                                               // the bars should only depend on engagment rate vals.
+                 // the bars should only depend on engagment rate vals.
+            {                                     
                 
                 for (int i = 0; i < input.size(); i++)
                 {
@@ -277,7 +284,9 @@ public class VisualizerWindow
                         data = input.get(i).getReachEngagementRate();
                         shapeY-=data;
                         newShape =
-                            new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, COLORS[i]); //implement color array to change colors
+                            new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, 
+                                COLORS[i]); 
+                        //implement color array to change colors
                         window.addShape(newShape);
                     }
                     else 
@@ -285,7 +294,9 @@ public class VisualizerWindow
                         data = input.get(i).getReachEngagementRate(period);
                         shapeY-=data;
                         newShape =
-                            new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, COLORS[i]); //implement color array to change colors
+                            new Shape(shapeX, shapeY, BAR_WIDTH, (int)data, 
+                                COLORS[i]); 
+                        //implement color array to change colors
                         window.addShape(newShape);
                     }
                     

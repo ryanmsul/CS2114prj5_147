@@ -192,7 +192,7 @@ public class VisualizerWindow
     {
         //remove previous bars
         window.removeAllShapes();
-        
+        updateText();
         int shapeX = START_X;
         int shapeY = START_Y;
         if (engagementType.equals("Traditional Engagement Rate")) // sortType 
@@ -200,7 +200,7 @@ public class VisualizerWindow
             // the bars should only depend on engagment rate vals.
         {    
             
-           
+            
             for (int i = 0; i < input.size(); i++)
             {
                 

@@ -121,10 +121,9 @@ public class GUIVisualizerWindow
         // The textShapes array will have the periodText, engageTypeText, and
         // sortType text in the indexes 0,1,2.
 
-        TextShape periodText = addTextShape(period, TEXT_X, TEXT_Y);
-        TextShape engagementTypeText =
-            addTextShape(engagementType, TEXT_X, TEXT_Y + 15);
-        TextShape sortTypeText = addTextShape(sortType, TEXT_X, TEXT_Y + 30);
+        addTextShape(period, TEXT_X, TEXT_Y);
+        addTextShape(engagementType, TEXT_X, TEXT_Y + 15);
+        addTextShape(sortType, TEXT_X, TEXT_Y + 30);
 
     }
 

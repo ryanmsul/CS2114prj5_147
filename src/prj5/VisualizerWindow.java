@@ -168,8 +168,9 @@ public class VisualizerWindow
             // the bars should only depend on engagment rate vals.
         {    
             
-            
-            for (int i = 0; i < input.size(); i++)
+
+           
+            for (int i = input.size()-1; i>=0; i--)
             {
                 
                 
@@ -238,7 +239,7 @@ public class VisualizerWindow
                  // the bars should only depend on engagment rate vals.
             {                                     
                 
-                for (int i = 0; i < input.size(); i++)
+                for (int i = input.size()-1; i>=0; i--)
                 {
                     //reset y location
                     shapeY = START_Y;
